@@ -11,7 +11,7 @@ class FrontEndController extends Controller
 {
     function index()
     {
-        $teams = Team::all();
+        $teams = Team::where('status','on')->get();
 
         return view("FE.index", [
             'teams' => $teams,

@@ -70,6 +70,8 @@
     @include("FE.component.navbar")
     
     @yield('content')
+  
+  
     
     @include('FE.component.footer')
 

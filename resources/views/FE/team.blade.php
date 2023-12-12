@@ -14,7 +14,7 @@
   <div class="tab fakta  sm:px-8 w-full bg-white shadow-xl relative mb-1 rounded-xl ">
     <input type="radio" name="faq" id="fakta" class="appearance-none peer">
     <label for="fakta"
-      class="flex items-center gap-x-3 cursor-pointer font-semibold text-lg after:content-[url(/dist/images/down.png)] after:items-center  after:absolute after:right-8 after:text-4xl  after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-180 ">
+      class="flex items-center gap-x-3 cursor-pointer font-semibold text-lg after:content-[url({{ asset('/FE/dist/images/down.png') }})] after:items-center  after:absolute after:right-8 after:text-4xl  after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-180 ">
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <rect width="40" height="40" rx="8" fill="#FFE4E1" />

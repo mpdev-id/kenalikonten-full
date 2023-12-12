@@ -12,6 +12,9 @@ class FrontEndController extends Controller
     function valid() {
         return view("FE.valid");
     }
+    function content() {
+        return view("FE.content");
+    }
     function donatur() {
         return view("FE.donatur");
     }

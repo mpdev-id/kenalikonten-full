@@ -36,8 +36,8 @@
   <div class="sm:w-[936px] flex flex-wrap mx-auto max-[1240px]:flex-col mt-5 mb-10 overscroll-none p-3 gap-y-3 transition-all ease-in-out duration-700 ">
     @for ($i = 0; $i < 6; $i++) 
     <div class="max-[1279px]:min-w-full p-4 lg:w-[279px] max-[1279px]:h-[540px] rounded-2xl bg-[#FFF] gap-y-2 shadow-xl sm:mr-4 flex flex-col cursor-pointer transition-all ease-in-out duration-700">
-     <div class="mx-auto ">
-       <img class="w-auto h-96 xl:h-44 rounded " src="{{ asset('FE/dist/images/sample.png') }}" />
+     <div class="mx-auto">
+       <img class="w-96 h-96 xl:h-44 rounded " src="https://via.placeholder.com/277x170" />
      </div>
      <div class="w-16 h-7 px-3 py-1 bg-rose-600 bg-opacity-20 rounded-2xl justify-start items-center gap-2.5 inline-flex">
       <div class="text-rose-600 text-sm font-normal font-['Poppins']">Hoaks</div>
@@ -46,12 +46,12 @@
       
       <div class="text-zinc-500 text-sm font-normal">3 jam yang lalu</div>
         <h2 class="font-semibold">
-        Tim yang akan mencari sumber..
+        Tim yang akan mencari sumber keaslian konten yang dikirim pengguna
         </h2>
      </div>
 
      <div class="mx-auto xl:pb-2 transition ease-in-out duration-700">
-      <a href="{{ route('content') }}" class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
+      <a href="#" class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
        Baca Selengkapnya
        <img class="w-6" src="{{ asset('FE') }}/dist/images/ic-arrow-right.png" alt="Detail">
       </a>
@@ -59,12 +59,12 @@
    </div>
    @endfor
   </div>
-  <div class="mt-[30px] mx-auto">
+  <div class="mt-[49px] mx-auto">
 
-    <button id="modalKirimKonten"
+    <a id="modalKirimKonten" href="{{ route('content') }}"
     class="w-[250px] px-5 bg-[#FF7366] shadow-xl font-semibold rounded-full py-3 text-[#fff] ">
-   Lihat lebih banyak
-  </button>
+    Coba Sekarang
+  </a>
 </div>
    
    

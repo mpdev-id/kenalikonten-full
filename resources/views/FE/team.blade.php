@@ -1,342 +1,195 @@
 @extends('template.frontend')
 @section('title','kenalikonten.com')
 @section('content')
-        <!-- hero -->
-        <section
-        class="flex flex-wrap justify-around items-center mt-[90px] max-w-4xl mx-auto transition-all ease-in-out duration-700">
-        <div class="text-center">
-          <div
-            class="text-[#151F33] text-7xl sm:text-9xl font-bold transition-all ease-in-out duration-700">
-            68%
-          </div>
-          <div
-            class="font-bold max-[1023px]:hidden only-[600px]:block text-3xl lg:text-[32px] lg:block left-0 transition-all ease-in-out duration-1000">
-            Media Sosial Jadi <span class="text-[#FF7366]">Sumber Hoaks</span><br> Terbesar
-            Tahun {{ date('Y') }}
-          </div>
-        </div>
-        <div>
-          <img class="w-[150.939px] sm:w-[231.94px] transition-all ease-in-out duration-1000"
-            loading="lazy" src="{{ asset('FE') }}/dist/icons/hero-right.svg" alt="">
-        </div>
-        <div
-          class="font-bold text-xl mx-2 sm:text-3xl  text-center w-full pt-2 min-[1023px]:hidden transition-all ease-in-out duration-700">
-          Media Sosial Jadi <span class="text-[#FF7366] ">Sumber Hoaks</span><br> Terbesar Tahun 2023
-          </span> 
-        </div>
-      </section>
-      <!-- upload -->
-      <section class="upload flex justify-center mt-[60px] min-[1280px]:mt-[90px] md:m-4">
-        <div
-          class="flex flex-row max-sm:flex-wrap justify-normal gap-[20px] h-auto max-sm:w-auto md:w-[824px] mx-3 px-[24px] py-[28px] bg-[#fff] shadow-xl rounded-[8px] transition-all ease-in-out duration-1000">
-          <div class="w-2/4">
-            <img loading="lazy" src="{{ asset('FE') }}/dist/icons/favicon.svg" alt="logo" class="w-[139px]">
-          </div>
-          <div class="">
-            <p class="font-normal text-[16px] w-auto">
-              Kenali Konten adalah website untuk memvalidasi keaslian konten yang tersebar di situs
-              maupun media sosial. Kirimkan screenshot konten, berita, dan tautan
-              informasi lainnya yang kamu baca. Selanjutnya biarkan tim Kenali Konten yang
-              memvalidasi konten tersebut
-              <span class="text-[#FF1F39] font-semibold">hoaks</span> atau <span
-                class="text-[#58BF18] font-semibold">fakta</span>.
-            </p>
-            <div class="flex flex-wrap mt-5 gap-x-5 max-md:justify-center max-md:gap-y-5">
-              <button id="modalKirimKonten"
-                class="w-[250px] px-5 bg-[#FF7366] shadow-xl font-semibold rounded-full py-3 text-[#fff] ">
-                Coba Sekarang
-              </button>
-              <button
-                class="w-[250px] px-5 py-3 bg-[#fff] shadow-xl font-semibold rounded-full  text-[#FF7366] border-solid border-[1.5px] border-[#FF7366]">
-                Lihat Konten Tervalidasi
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- youtube -->
-      <section
-        class="flex flex-row max-[1240px]:flex-col justify-between items-center align-center w-auto max-sm:gap-y-4 lg:w-[824px] mt-[215px] min-[1280px]:my-[300px] mx-auto p-3 transition-all ease-in-out duration-700">
-        <div
-          class="flex flex-col max-[1280px]:p-4 max-[1240px]:m-0 max-[1240px]:w-full w-[400px] max-[839px]:w-full sm:pr-[40px] max-[728px]:w-full">
-          <h1
-            class="text-[18px] sm:text-[32px] color-[#333] font-semibold leading-none transition-all ease-in-out duration-700">
-            Eits! Baru baca judul, tapi udah langsung percaya aja?
-          </h1>
-          <p class="my-4">Jangan dulu terbawa emosi ketika baru membaca judul berita. Tonton
-            ini dulu biar kamu paham apa yang mesti dilakukan sebelum percaya pada suatu
-            berita</p>
-          <div class="mt-3">
-            <a href="https://www.youtube.com/watch?v=0RktiyVNu7U" target="_blank"
-              class="w-[228px] px-5 bg-[#FF7366] shadow-xl rounded-full py-3 text-[#fff] font-semibold transition-all ease-in-out duration-700">
-              Tonton di Youtube
-            </a>
-          </div>
-        </div>
-        <div
-          class="max-[1240px]:min-w-full max-[1280px]:p-4 w-[400px] mt-8 sm:mt-4 transition-all ease-in-out duration-700">
-          <iframe class="rounded-[8px] min-w-full min-[1280px]:h-52 min-[600px]:h-96  max-[414px]:h-52" id="ytplayer"
-            src="https://www.youtube.com/embed/0RktiyVNu7U?autoplay=1&mute=0&disablekb=1&loop=1&start=1&controls=0"
-            title="YouTube: Sebelum percaya judulnya, pause dulu" frameborder="0"
-            allowfullscreen></iframe>
-        </div>
-      </section>
-      <!-- tim -->
-      <section
-        class="flex flex-wrap max-[1279px]:h-fit mt-[188px] bg-[#FFE4E1] pt-[53px] p-4 transition-all ease-in-out duration-700">
-        <div class="flex flex-wrap justify-center items-center w-[1024px] mx-auto swiper h-fit">
-          <div class="w-[661px] text-center my-4 transition-all ease-in-out duration-700">
-            <h1
-              class="text-[32px] color-[#333] font-semibold leading-none w-[360px] md:w-[461px] mx-auto">
-              Jadi bagian dari tim <span class="text-[#39BFBF]"> gerakan </span> Kenali Konten
-            </h1>
-            <p class="mt-5">Gabung dan gerak bersama dengan menjadi tim relawan gerakan Kenali
-              Konten. Kembangkan platform dan komunitas agar masyarakat bisa teredukasi untuk
-              membedakan berita atau konten yang hoaks dan fakta.</p>
-          </div>
-          <div
-            class="sm:w-[936px] flex max-[1240px]:flex-col mt-5 mb-10 overscroll-none swiper-wrapper p-3 gap-y-2 transition-all ease-in-out duration-700">
+<section
+  class="flex flex-wrap justify-between items-center gap-[20px] mt-8 max-w-5xl mx-auto transition-all ease-in-out duration-700">
+  <div class="text-center flex flex-col gap-y-3 w-full">
+    <h2 class="text-4xl font-semibold">Tim Kenali Konten</h2>
+    <p class="text-base font-normal md:w-[661px] mx-auto">
+      Para relawan yang bergerak bersama untuk edukasi ke masyarakat agar sadar
+      dan peduli membedakan konten hoaks dan fakta.
+    </p>
 
-            @for ($i = 0; $i < 100; $i++)
-                
-            <div
-              class="max-[1279px]:min-w-full lg:w-[279px] h-[300px] rounded-2xl bg-[#FFF] shadow-xl sm:mr-4 flex flex-col gap-3 cursor-grab swiper-slide">   
-              <div class="mx-auto mt-9">
-                <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <rect x="0.5" width="40" height="40" rx="8" fill="#FFE4E1" />
-                  <path
-                    d="M24.875 20C28 20 30.5 22.5 30.5 25.625C30.5 26.725 30.1875 27.7625 29.6375 28.625L33.4875 32.5L31.75 34.2375L27.85 30.4C26.9875 30.9375 25.9625 31.25 24.875 31.25C21.75 31.25 19.25 28.75 19.25 25.625C19.25 22.5 21.75 20 24.875 20ZM24.875 22.5C24.0462 22.5 23.2513 22.8292 22.6653 23.4153C22.0792 24.0013 21.75 24.7962 21.75 25.625C21.75 26.4538 22.0792 27.2487 22.6653 27.8347C23.2513 28.4208 24.0462 28.75 24.875 28.75C25.7038 28.75 26.4987 28.4208 27.0847 27.8347C27.6708 27.2487 28 26.4538 28 25.625C28 24.7962 27.6708 24.0013 27.0847 23.4153C26.4987 22.8292 25.7038 22.5 24.875 22.5ZM13 32.5C12.337 32.5 11.7011 32.2366 11.2322 31.7678C10.7634 31.2989 10.5 30.663 10.5 30V10C10.5 9.33696 10.7634 8.70107 11.2322 8.23223C11.7011 7.76339 12.337 7.5 13 7.5H14.25V16.25L17.375 14.375L20.5 16.25V7.5H28C28.663 7.5 29.2989 7.76339 29.7678 8.23223C30.2366 8.70107 30.5 9.33696 30.5 10V19.7625C28.9886 18.3086 26.9722 17.4975 24.875 17.5C22.7201 17.5 20.6535 18.356 19.1298 19.8798C17.606 21.4035 16.75 23.4701 16.75 25.625C16.75 28.5125 18.2625 31.0625 20.5375 32.5H13Z"
-                    fill="#FF7366" />
-                </svg>
-              </div>
-              <div class="py-3 transition-all ease-in-out duration-700">
-                <h2 class="text-center">Tim Relawan</h2>
-                <h1 class="text-center text-[20px] font-semibold ">Pencari Fakta</h1>
-              </div>
-              <div class="w-[245px] max-[1024px]:w-full mx-auto">
-                <p class="text-center">
-                  Tim yang akan mencari sumber keaslian konten yang dikirim pengguna
-                </p>
-              </div>
-              <div class="mx-auto">
-                <a href="#"
-                  class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
-                  Daftar
-                  <img class="w-6" src="{{ asset('FE') }}/dist/images/ic-arrow-right.png" alt="Detail">
-                </a>
-              </div>
-            </div>
-            @endfor
-            
-          </div>
-          <div class="mx-auto flex gap-x-6 pb-[55px] ">
-            <a class="prev max-[1280px]:hidden block">
-              <img class="w-8 " src="{{ asset('FE') }}/dist/images/ic-arrow-slide-left.png" alt="">
-            </a>
-            <a class="next max-[1280px]:hidden block">
-              <img class="w-8 " src="{{ asset('FE') }}/dist/images/ic-arrow-slide-right.png" alt="">
-            </a>
-          </div>
+  </div>
+  <div class="tab fakta  sm:px-8 w-full bg-white shadow-xl relative mb-1 rounded-xl ">
+    <input type="radio" name="faq" id="fakta" class="appearance-none peer">
+    <label for="fakta"
+      class="flex items-center gap-x-3 cursor-pointer font-semibold text-lg after:content-[url(/dist/images/down.png)] after:items-center  after:absolute after:right-8 after:text-4xl  after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-180 ">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#FFE4E1" />
+        <path
+          d="M24.375 20C27.5 20 30 22.5 30 25.625C30 26.725 29.6875 27.7625 29.1375 28.625L32.9875 32.5L31.25 34.2375L27.35 30.4C26.4875 30.9375 25.4625 31.25 24.375 31.25C21.25 31.25 18.75 28.75 18.75 25.625C18.75 22.5 21.25 20 24.375 20ZM24.375 22.5C23.5462 22.5 22.7513 22.8292 22.1653 23.4153C21.5792 24.0013 21.25 24.7962 21.25 25.625C21.25 26.4538 21.5792 27.2487 22.1653 27.8347C22.7513 28.4208 23.5462 28.75 24.375 28.75C25.2038 28.75 25.9987 28.4208 26.5847 27.8347C27.1708 27.2487 27.5 26.4538 27.5 25.625C27.5 24.7962 27.1708 24.0013 26.5847 23.4153C25.9987 22.8292 25.2038 22.5 24.375 22.5ZM12.5 32.5C11.837 32.5 11.2011 32.2366 10.7322 31.7678C10.2634 31.2989 10 30.663 10 30V10C10 9.33696 10.2634 8.70107 10.7322 8.23223C11.2011 7.76339 11.837 7.5 12.5 7.5H13.75V16.25L16.875 14.375L20 16.25V7.5H27.5C28.163 7.5 28.7989 7.76339 29.2678 8.23223C29.7366 8.70107 30 9.33696 30 10V19.7625C28.4886 18.3086 26.4722 17.4975 24.375 17.5C22.2201 17.5 20.1535 18.356 18.6298 19.8798C17.106 21.4035 16.25 23.4701 16.25 25.625C16.25 28.5125 17.7625 31.0625 20.0375 32.5H12.5Z"
+          fill="#FF7366" />
+      </svg>
+      <h3>Tim Pencari Fakta</h3>
+    </label>
+    <div
+      class="answer content mt-5 h-0 transition ease-in-out delay-600 overflow-hidden peer-checked:h-full ">
+      <div class="grid grid-cols-2 w-[504px] gap-2 m-auto pb-5 ">
+        <div
+          class=" w-[246px] h-[263px] flex flex-col justify-center items-center text-center shadow-xl rounded-lg border-[#EFEFEF] border-2 ">
+          <img src="/dist/images/img-collabs.png" alt="" class="rounded-full w-[117px] mb-4">
+          <h3 class="font-semibold">Andi Hidayat</h3>
+          <p class="px-3">Berjuang agar lebih baik di masa depan yang akan datang</p>
         </div>
-      </section>
-      <!-- contact us -->
-      <section
-        class="flex flex-wrap max-[640px]:flex-col justify-normal w-auto lg:w-[824px] mt-[188px] mx-auto max-[768px]:mx-4 max-[768px]:mx-6 p-4 sm:p-0 transition-all ease-in-out duration-700 min-[1280px]:mt-[200px]">
-        <div class="sm:w-[400px] sm:pr-[40px] md:mt-4">
-          <img class="w-[200px] sm:w-[300px]" src="{{ asset('FE') }}/dist/images/img-collabs.png" alt=""
-            srcset="{{ asset('FE') }}/dist/images/img-collabs.png">
+      </div>
+    </div>
+  </div>
+  <div class="tab sosmed  sm:px-8 w-full bg-white shadow-xl relative mb-1 rounded-xl ">
+    <input type="radio" name="faq" id="kontenSosmed" class="appearance-none peer">
+    <label for="kontenSosmed"
+      class="flex items-center gap-x-3 cursor-pointer font-semibold text-lg after:content-[url(/dist/images/down.png)] after:items-center  after:absolute after:right-8 after:text-4xl  after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-180 ">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#FFE4E1" />
+        <path
+          d="M12.3333 8C11.1841 8 10.0819 8.45655 9.2692 9.2692C8.45655 10.0819 8 11.1841 8 12.3333V27.6667C8 28.8159 8.45655 29.9181 9.2692 30.7308C10.0819 31.5435 11.1841 32 12.3333 32H27.6667C28.8159 32 29.9181 31.5435 30.7308 30.7308C31.5435 29.9181 32 28.8159 32 27.6667V12.3333C32 11.1841 31.5435 10.0819 30.7308 9.2692C29.9181 8.45655 28.8159 8 27.6667 8H12.3333ZM12 15C12 13.712 13.0453 12.6667 14.3333 12.6667H25.6667C26.9547 12.6667 28 13.712 28 15V17C28 17.6188 27.7542 18.2123 27.3166 18.6499C26.879 19.0875 26.2855 19.3333 25.6667 19.3333H14.3333C13.7145 19.3333 13.121 19.0875 12.6834 18.6499C12.2458 18.2123 12 17.6188 12 17V15ZM14.3333 14.6667C14.2449 14.6667 14.1601 14.7018 14.0976 14.7643C14.0351 14.8268 14 14.9116 14 15V17C14 17.184 14.1493 17.3333 14.3333 17.3333H25.6667C25.7551 17.3333 25.8399 17.2982 25.9024 17.2357C25.9649 17.1732 26 17.0884 26 17V15C26 14.9116 25.9649 14.8268 25.9024 14.7643C25.8399 14.7018 25.7551 14.6667 25.6667 14.6667H14.3333ZM13 21.3333H19C19.2652 21.3333 19.5196 21.4387 19.7071 21.6262C19.8946 21.8138 20 22.0681 20 22.3333C20 22.5985 19.8946 22.8529 19.7071 23.0404C19.5196 23.228 19.2652 23.3333 19 23.3333H13C12.7348 23.3333 12.4804 23.228 12.2929 23.0404C12.1054 22.8529 12 22.5985 12 22.3333C12 22.0681 12.1054 21.8138 12.2929 21.6262C12.4804 21.4387 12.7348 21.3333 13 21.3333ZM12 26.3333C12 26.0681 12.1054 25.8138 12.2929 25.6262C12.4804 25.4387 12.7348 25.3333 13 25.3333H19C19.2652 25.3333 19.5196 25.4387 19.7071 25.6262C19.8946 25.8138 20 26.0681 20 26.3333C20 26.5986 19.8946 26.8529 19.7071 27.0404C19.5196 27.228 19.2652 27.3333 19 27.3333H13C12.7348 27.3333 12.4804 27.228 12.2929 27.0404C12.1054 26.8529 12 26.5986 12 26.3333ZM24.3333 21.3333H25.6667C26.9547 21.3333 28 22.3787 28 23.6667V25C28 25.6188 27.7542 26.2123 27.3166 26.6499C26.879 27.0875 26.2855 27.3333 25.6667 27.3333H24.3333C23.7145 27.3333 23.121 27.0875 22.6834 26.6499C22.2458 26.2123 22 25.6188 22 25V23.6667C22 22.3787 23.0453 21.3333 24.3333 21.3333ZM24 23.6667C24 23.5783 24.0351 23.4935 24.0976 23.431C24.1601 23.3685 24.2449 23.3333 24.3333 23.3333H25.6667C25.7551 23.3333 25.8399 23.3685 25.9024 23.431C25.9649 23.4935 26 23.5783 26 23.6667V25C26 25.0884 25.9649 25.1732 25.9024 25.2357C25.8399 25.2982 25.7551 25.3333 25.6667 25.3333H24.3333C24.2449 25.3333 24.1601 25.2982 24.0976 25.2357C24.0351 25.1732 24 25.0884 24 25V23.6667Z"
+          fill="#FF7366" />
+      </svg>
+      <h3>Tim Konten Media Sosial</h3>
+    </label>
+    <div
+      class="answer content mt-5 h-0 transition ease-in-out delay-600 overflow-hidden peer-checked:h-full">
+      <div class="grid grid-cols-2 w-[504px] gap-2 m-auto pb-5">
+        <div
+          class=" w-[246px] h-[263px] flex flex-col justify-center items-center text-center shadow-xl rounded-lg border-[#EFEFEF] border-2 ">
+          <img src="/dist/images/img-collabs.png" alt="" class="rounded-full w-[117px] mb-4">
+          <h3 class="font-semibold">Andi Hidayat</h3>
+          <p class="px-3">Berjuang agar lebih baik di masa depan yang akan datang</p>
         </div>
-        <div class="md:w-[400px] w-auto">
-          <h1 class="text-[32px] color-[#333] font-semibold max-[640px]:text-[28px]">
-            Gerak bareng dengan kolaborasi bersama kami
-          </h1>
-          <p class="font-normal text-[16px] py-4">
-            Tim Kenali Konten menerima kerjasama dan kolaborasi dalam bentuk apapun sebagai
-            upaya mengedukasi masyarakat perihal
-            <span class="text-[#FF1F39] font-semibold">hoaks</span> dan <span
-              class="text-[#58BF18] font-semibold">fakta</span>.
-          </p>
-          <button
-            class="px-5 bg-[#FF7366] shadow-xl rounded-full py-3  text-[#fff] font-semibold">
-            Hubungi Kami
-          </button>
+      </div>
+    </div>
+  </div>
+  <div class="tab copyWriter  sm:px-8 w-full bg-white shadow-xl relative mb-1 rounded-xl ">
+    <input type="radio" name="faq" id="copyWriter" class="appearance-none peer">
+    <label for="copyWriter"
+      class="flex items-center gap-x-3 cursor-pointer font-semibold text-lg after:content-[url(/dist/images/down.png)] after:items-center  after:absolute after:right-8 after:text-4xl  after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-180 ">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#FFE4E1" />
+        <path
+          d="M10.1533 29.3332C9.54 29.3332 9.028 29.1278 8.61733 28.7172C8.20578 28.3056 8 27.7932 8 27.1798V12.8198C8 12.2065 8.20578 11.6945 8.61733 11.2838C9.028 10.8723 9.54 10.6665 10.1533 10.6665H29.8467C30.46 10.6665 30.972 10.8723 31.3827 11.2838C31.7942 11.6945 32 12.2065 32 12.8198V27.1798C32 27.7932 31.7947 28.3052 31.384 28.7158C30.9724 29.1274 30.46 29.3332 29.8467 29.3332H10.1533ZM11.6413 25.1798H28.3587V23.8465H11.6413V25.1798ZM11.6413 20.6665H28.3587V19.3332H11.6413V20.6665ZM11.6413 16.1532H23.3333V14.8198H11.64L11.6413 16.1532Z"
+          fill="#FF7366" />
+      </svg>
+      <h3>Tim Copy Writer</h3>
+    </label>
+    <div
+      class="answer content mt-5 h-0 transition ease-in-out delay-600 overflow-hidden peer-checked:h-full">
+      <div class="grid grid-cols-2 w-[504px] gap-2 m-auto pb-6">
+        <div
+          class=" w-[246px] h-[263px] p-4 flex flex-col justify-center items-center shadow-xl rounded-lg border-[#EFEFEF] border-2 ">
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+  <div class="tab publicRelation  sm:px-8 w-full bg-white shadow-xl relative mb-1 rounded-xl ">
+    <input type="radio" name="faq" id="publicRelation" class="appearance-none peer">
+    <label for="publicRelation"
+      class="flex items-center gap-x-3 cursor-pointer font-semibold text-lg after:content-[url(/dist/images/down.png)] after:items-center  after:absolute after:right-8 after:text-4xl  after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-180 ">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#FFE4E1" />
+        <path
+          d="M16.3335 20.0002C19.2748 20.0002 21.6668 17.6082 21.6668 14.6668C21.6668 11.7255 19.2748 9.3335 16.3335 9.3335C13.3922 9.3335 11.0002 11.7255 11.0002 14.6668C11.0002 17.6082 13.3922 20.0002 16.3335 20.0002ZM18.3335 21.3335H14.3335C9.9215 21.3335 6.3335 24.9215 6.3335 29.3335V30.6668H26.3335V29.3335C26.3335 24.9215 22.7455 21.3335 18.3335 21.3335Z"
+          fill="#FF7366" />
+        <path
+          d="M25.8054 18.7308C26.6175 17.3469 26.9682 15.7405 26.8068 14.1441C26.5681 11.7655 25.2401 9.66279 23.0694 8.22412L21.5961 10.4455C23.0881 11.4348 23.9961 12.8441 24.1534 14.4108C24.226 15.1389 24.1353 15.8741 23.8881 16.5628C23.6408 17.2515 23.2432 17.8764 22.7241 18.3921L21.1348 19.9815L23.2921 20.6148C28.9348 22.2681 29.0001 27.9428 29.0001 28.0001H31.6668C31.6668 25.6148 30.3921 20.9535 25.8054 18.7308Z"
+          fill="#FF7366" />
+      </svg>
+      <h3>Tim Public Relation</h3>
+    </label>
+    <div
+      class="answer content mt-5 h-0 transition ease-in-out delay-600 overflow-hidden peer-checked:h-full">
+      <div class="grid grid-cols-2 w-[504px] gap-2 m-auto pb-6">
+        <div
+          class=" w-[246px] h-[263px] p-4 flex flex-col justify-center items-center shadow-xl rounded-lg border-[#EFEFEF] border-2 ">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab documentation  sm:px-8 w-full bg-white shadow-xl relative mb-1 rounded-xl ">
+    <input type="radio" name="faq" id="documentation" class="appearance-none peer">
+    <label for="documentation"
+      class="flex items-center gap-x-3 cursor-pointer font-semibold text-lg after:content-[url(/dist/images/down.png)] after:items-center  after:absolute after:right-8 after:text-4xl  after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-180 ">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#FFE4E1" />
+        <path
+          d="M18.9067 15.9107L23.216 8.44933C25.016 8.91422 26.6436 9.82356 28.0987 11.1773C29.5547 12.5311 30.6124 14.1089 31.272 15.9107H18.9067ZM15.8507 19.0133L11.564 11.4747C12.6956 10.3653 13.9831 9.50889 15.4267 8.90533C16.8702 8.30178 18.3947 8 20 8C20.3404 8 20.7293 8.02089 21.1667 8.06267C21.604 8.10444 21.9356 8.14756 22.1613 8.192L15.8507 19.0133ZM8.384 22.9733C8.25067 22.4062 8.15333 21.8836 8.092 21.4053C8.03067 20.9262 8 20.4578 8 20C8 18.5929 8.23867 17.2409 8.716 15.944C9.19244 14.6462 9.88889 13.4284 10.8053 12.2907L16.9227 22.9747H8.38267L8.384 22.9733ZM16.9213 31.6027C15.0191 31.1031 13.3218 30.168 11.8293 28.7973C10.3369 27.4267 9.29511 25.832 8.704 24.0133H21.24L16.92 31.6027H16.9213ZM20 32C19.6667 32 19.3067 31.9778 18.92 31.9333C18.5324 31.8889 18.2169 31.8444 17.9733 31.8L24.2533 21.1413L28.4613 28.5C27.3467 29.6093 26.0591 30.4702 24.5987 31.0827C23.1382 31.6942 21.6053 32 20 32ZM29.1947 27.7107L23.0773 16.9733H31.6173C31.7338 17.4889 31.8271 18.0031 31.8973 18.516C31.9658 19.0298 32 19.5244 32 20C32 21.4356 31.7618 22.7964 31.2853 24.0827C30.8098 25.368 30.1129 26.5769 29.1947 27.7093V27.7107Z"
+          fill="#FF7366" />
+      </svg>
+
+      <h3>Tim Dokumentasi</h3>
+    </label>
+    <div
+      class="answer content mt-5 h-0 transition ease-in-out delay-600 overflow-hidden peer-checked:h-full">
+      <div class="grid grid-cols-2 w-[504px] gap-2 m-auto pb-6">
+        <div
+          class=" w-[246px] h-[263px] p-4 flex flex-col justify-center items-center shadow-xl rounded-lg border-[#EFEFEF] border-2 ">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab platformDev  sm:px-8 w-full bg-white shadow-xl relative mb-1 rounded-xl ">
+    <input type="radio" name="faq" id="platformDev" class="appearance-none peer">
+    <label for="platformDev"
+      class="flex items-center gap-x-3 cursor-pointer font-semibold text-lg after:content-[url(/dist/images/down.png)] after:items-center  after:absolute after:right-8 after:text-4xl  after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-180 ">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#FFE4E1" />
+        <path
+          d="M10.1533 29.3332C9.54 29.3332 9.028 29.1278 8.61733 28.7172C8.20578 28.3056 8 27.7932 8 27.1798V12.8198C8 12.2065 8.20578 11.6945 8.61733 11.2838C9.028 10.8723 9.54 10.6665 10.1533 10.6665H29.8467C30.46 10.6665 30.972 10.8723 31.3827 11.2838C31.7942 11.6945 32 12.2065 32 12.8198V27.1798C32 27.7932 31.7947 28.3052 31.384 28.7158C30.9724 29.1274 30.46 29.3332 29.8467 29.3332H10.1533ZM11.6413 25.1798H28.3587V23.8465H11.6413V25.1798ZM11.6413 20.6665H28.3587V19.3332H11.6413V20.6665ZM11.6413 16.1532H23.3333V14.8198H11.64L11.6413 16.1532Z"
+          fill="#FF7366" />
+      </svg>
+      <h3>Tim Pengembang Platform</h3>
+    </label>
+    <div
+      class="answer content mt-5 h-0 transition ease-in-out delay-600 overflow-hidden peer-checked:h-full">
+      <div class="grid grid-cols-2 w-[504px] gap-2 m-auto pb-6">
+        <div
+          class=" w-[246px] h-[263px] p-4 flex flex-col justify-center items-center shadow-xl rounded-lg border-[#EFEFEF] border-2 ">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab leaderShip  sm:px-8 w-full bg-white shadow-xl relative mb-1 rounded-xl ">
+    <input type="radio" name="faq" id="leaderShip" class="appearance-none peer">
+    <label for="leaderShip"
+      class="flex items-center gap-x-3 cursor-pointer font-semibold text-lg after:content-[url(/dist/images/down.png)] after:items-center  after:absolute after:right-8 after:text-4xl  after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-180 ">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#FFE4E1" />
+        <g clip-path="url(#clip0_117_1590)">
+          <path
+            d="M19.9999 6.6665C22.2098 6.6665 24.3652 7.35291 26.1682 8.63087C27.9711 9.90883 29.3326 11.7152 30.0646 13.8005C30.7965 15.8857 30.8626 18.1468 30.2539 20.2712C29.6452 22.3957 28.3917 24.2786 26.6665 25.6598V31.8065C26.6665 32.0435 26.6091 32.2769 26.4992 32.4868C26.3893 32.6967 26.2301 32.8769 26.0354 33.0119C25.8407 33.1468 25.6161 33.2326 25.381 33.2619C25.1458 33.2911 24.9071 33.263 24.6852 33.1798L19.9999 31.4252L15.3145 33.1825C15.0926 33.2657 14.8537 33.2938 14.6185 33.2645C14.3832 33.2352 14.1586 33.1493 13.9638 33.0141C13.769 32.879 13.6099 32.6987 13.5001 32.4886C13.3903 32.2785 13.333 32.0449 13.3332 31.8078V25.6612C11.6075 24.2801 10.3535 22.3971 9.74448 20.2724C9.13544 18.1477 9.20148 15.8862 9.93345 13.8007C10.6654 11.7151 12.0272 9.90848 13.8305 8.63046C15.6338 7.35243 17.7896 6.66616 19.9999 6.6665ZM19.9999 9.33317C17.8781 9.33317 15.8433 10.176 14.343 11.6763C12.8427 13.1766 11.9999 15.2114 11.9999 17.3332C11.9999 19.4549 12.8427 21.4897 14.343 22.99C15.8433 24.4903 17.8781 25.3332 19.9999 25.3332C22.1216 25.3332 24.1564 24.4903 25.6567 22.99C27.157 21.4897 27.9999 19.4549 27.9999 17.3332C27.9999 15.2114 27.157 13.1766 25.6567 11.6763C24.1564 10.176 22.1216 9.33317 19.9999 9.33317ZM19.9999 11.9998C21.4144 11.9998 22.7709 12.5617 23.7711 13.5619C24.7713 14.5621 25.3332 15.9187 25.3332 17.3332C25.3332 18.7477 24.7713 20.1042 23.7711 21.1044C22.7709 22.1046 21.4144 22.6665 19.9999 22.6665C18.5854 22.6665 17.2288 22.1046 16.2286 21.1044C15.2284 20.1042 14.6665 18.7477 14.6665 17.3332C14.6665 15.9187 15.2284 14.5621 16.2286 13.5619C17.2288 12.5617 18.5854 11.9998 19.9999 11.9998Z"
+            fill="#FF7366" />
+        </g>
+        <defs>
+          <clipPath id="clip0_117_1590">
+            <rect width="32" height="32" fill="white" transform="translate(4 4)" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <h3>Leadership</h3>
+    </label>
+    <div
+      class="answer content mt-5 h-0 transition ease-in-out delay-600 overflow-hidden peer-checked:h-full">
+      <div class="grid grid-cols-2 w-[504px] gap-2 m-auto pb-6">
+        <div
+          class=" w-[246px] h-[263px] p-4 flex flex-col justify-center items-center shadow-xl rounded-lg border-[#EFEFEF] border-2 ">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 @endsection
 
 @section("modal")
-        <!-- modal -->
-        <div id="modalKirim"
-        class="hidden fixed inset-0 bg-slate-600 bg-opacity-50 overflow-y-scroll h-screen flex items-center justify-center transition-all z-[1000] ">
-        <div
-          class="bg-[#F7F7F7] rounded-lg shadow-xl w-auto  sm:w-[600px] opacity-100 transform transition-all ease-in-out duration-700 p-8 m-4 ">
-          <div class="flex justify-end">
-            <button id="closeModalBtn">
-              <svg class="bg-[#FFE4E1] w-[32px] h-[32px] rounded-full"
-                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                fill="none">
-                <path
-                  d="M18.3 5.70998C18.2075 5.61728 18.0976 5.54373 17.9766 5.49355C17.8556 5.44337 17.7259 5.41754 17.595 5.41754C17.464 5.41754 17.3343 5.44337 17.2134 5.49355C17.0924 5.54373 16.9825 5.61728 16.89 5.70998L12 10.59L7.10998 5.69998C7.0174 5.6074 6.90749 5.53396 6.78652 5.48385C6.66556 5.43375 6.53591 5.40796 6.40498 5.40796C6.27405 5.40796 6.1444 5.43375 6.02344 5.48385C5.90247 5.53396 5.79256 5.6074 5.69998 5.69998C5.6074 5.79256 5.53396 5.90247 5.48385 6.02344C5.43375 6.1444 5.40796 6.27405 5.40796 6.40498C5.40796 6.53591 5.43375 6.66556 5.48385 6.78652C5.53396 6.90749 5.6074 7.0174 5.69998 7.10998L10.59 12L5.69998 16.89C5.6074 16.9826 5.53396 17.0925 5.48385 17.2134C5.43375 17.3344 5.40796 17.464 5.40796 17.595C5.40796 17.7259 5.43375 17.8556 5.48385 17.9765C5.53396 18.0975 5.6074 18.2074 5.69998 18.3C5.79256 18.3926 5.90247 18.466 6.02344 18.5161C6.1444 18.5662 6.27405 18.592 6.40498 18.592C6.53591 18.592 6.66556 18.5662 6.78652 18.5161C6.90749 18.466 7.0174 18.3926 7.10998 18.3L12 13.41L16.89 18.3C16.9826 18.3926 17.0925 18.466 17.2134 18.5161C17.3344 18.5662 17.464 18.592 17.595 18.592C17.7259 18.592 17.8556 18.5662 17.9765 18.5161C18.0975 18.466 18.2074 18.3926 18.3 18.3C18.3926 18.2074 18.466 18.0975 18.5161 17.9765C18.5662 17.8556 18.592 17.7259 18.592 17.595C18.592 17.464 18.5662 17.3344 18.5161 17.2134C18.466 17.0925 18.3926 16.9826 18.3 16.89L13.41 12L18.3 7.10998C18.68 6.72998 18.68 6.08998 18.3 5.70998Z"
-                  fill="#333333" />
-              </svg>
-            </button>
-          </div>
-          <div class="text-center mb-7">
-            <span class="text-xl sm:text-3xl font-semibold my-6 text-[#333] text-center">Kirim konten
-              yang kamu
-              baca kepada tim Kenali Konten</span>
-          </div>
-          <form action="#" method="post">
-            <div class="my-4">
-              <span class="text-[#000] mb-2">Screenshot 1<span class="text-[#FF1F39]">*</span></span>
-              <input name="screenshot1" type="file"
-                placeholder="Masukkan link atau tautan konten yang kamu baca"
-                class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
-                required>
-            </div>
-            <div class="my-4">
-              <span class="text-[#000] mb-2">Screenshot 2</span>
-              <input name="screenshot2" type="file"
-                placeholder="Masukkan link atau tautan konten yang kamu baca"
-                class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]">
-            </div>
-            <div class="my-4">
-              <span class="text-[#000] mb-2">Link atau tautan sumber konten</span>
-              <input name="link" type="text"
-                placeholder="Masukkan link atau tautan konten yang kamu baca"
-                class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]">
-            </div>
-            <div class="my-4">
-              <span class="text-[#000] mb-2">Detail Info</span>
-              <input name="detail" type="text" placeholder="Ketik info apapun"
-                class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]">
-            </div>
-            <div class="my-4">
-              <span class="text-[#000] mb-5">Email<span class="text-[#FF1F39]">*</span></span>
-              <input name="email" type="text"
-                placeholder="Masukkan email untuk balasan validasi konten"
-                class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
-                required>
-            </div>
-            <button class="w-full px-5 bg-[#FF7366] shadow-xl rounded-full py-3 text-[#fff] ">
-              Kirim Sekarang
-            </button>
-        </div>
-        </form>
-      </div>
-  
-      <!-- sukses -->
-      <div id="modalSukses"
-        class="hidden fixed inset-0 bg-slate-600 bg-opacity-50 overflow-y-auto h-500  flex items-center justify-center transition-all">
-        <div
-          class="bg-[#F7F7F7] rounded-lg shadow-xl w-[400px] sm:w-[600px]  opacity-100 transform transition-transform duration-400 p-8">
-          <div class="flex justify-end">
-            <button id="closeModalBtn">
-              <svg class="bg-[#FFE4E1] w-[32px] h-[32px] rounded-full"
-                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                fill="none">
-                <path
-                  d="M18.3 5.70998C18.2075 5.61728 18.0976 5.54373 17.9766 5.49355C17.8556 5.44337 17.7259 5.41754 17.595 5.41754C17.464 5.41754 17.3343 5.44337 17.2134 5.49355C17.0924 5.54373 16.9825 5.61728 16.89 5.70998L12 10.59L7.10998 5.69998C7.0174 5.6074 6.90749 5.53396 6.78652 5.48385C6.66556 5.43375 6.53591 5.40796 6.40498 5.40796C6.27405 5.40796 6.1444 5.43375 6.02344 5.48385C5.90247 5.53396 5.79256 5.6074 5.69998 5.69998C5.6074 5.79256 5.53396 5.90247 5.48385 6.02344C5.43375 6.1444 5.40796 6.27405 5.40796 6.40498C5.40796 6.53591 5.43375 6.66556 5.48385 6.78652C5.53396 6.90749 5.6074 7.0174 5.69998 7.10998L10.59 12L5.69998 16.89C5.6074 16.9826 5.53396 17.0925 5.48385 17.2134C5.43375 17.3344 5.40796 17.464 5.40796 17.595C5.40796 17.7259 5.43375 17.8556 5.48385 17.9765C5.53396 18.0975 5.6074 18.2074 5.69998 18.3C5.79256 18.3926 5.90247 18.466 6.02344 18.5161C6.1444 18.5662 6.27405 18.592 6.40498 18.592C6.53591 18.592 6.66556 18.5662 6.78652 18.5161C6.90749 18.466 7.0174 18.3926 7.10998 18.3L12 13.41L16.89 18.3C16.9826 18.3926 17.0925 18.466 17.2134 18.5161C17.3344 18.5662 17.464 18.592 17.595 18.592C17.7259 18.592 17.8556 18.5662 17.9765 18.5161C18.0975 18.466 18.2074 18.3926 18.3 18.3C18.3926 18.2074 18.466 18.0975 18.5161 17.9765C18.5662 17.8556 18.592 17.7259 18.592 17.595C18.592 17.464 18.5662 17.3344 18.5161 17.2134C18.466 17.0925 18.3926 16.9826 18.3 16.89L13.41 12L18.3 7.10998C18.68 6.72998 18.68 6.08998 18.3 5.70998Z"
-                  fill="#333333" />
-              </svg>
-            </button>
-          </div>
-          <form action="" method="post" class="flex flex-col gap-7">
-            <div
-              class="text-zinc-800 text-center text-3xl font-semibold self-center whitespace-nowrap mt-7">
-              Terkirim!
-            </div>
-            <img loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/914bb2b895804a3550404945f7409c29667ffa8c16ddac9a36e85b446ae6853f?"
-              class="aspect-[0.95] object-contain object-center w-[250px] justify-center items-center overflow-hidden self-center max-w-full mt-7" />
-            <div class="text-red-400 text-center text-base self-stretch mt-7 max-md:max-w-full">
-              <span class="text-zinc-800">
-                Tunggu balasan dari kami untuk validasi konten yang sudah kamu kirim atau
-                cek halaman
-              </span>
-              <span class="text-red-400">Konten Tervalidasi</span>
-              <span class="text-zinc-800">
-                untuk konten-konten yang sudah divalidasi oleh tim Kenali Konten.
-                <br />
-                <br />
-                Jangan sebar berita atau konten sebelum kamu mencari tahu kebenarannya.
-              </span>
-            </div>
-            <button
-              class="text-white text-base font-semibold whitespace-nowrap  shadow-lg bg-red-400 mt-7 px-16 py-3 rounded-[50px] max-md:max-w-full max-md:px-5">
-              Saya Mengerti
-            </button>
-        </div>
-        </form>
-      </div>
-  
+       
 @endsection
 
 @push('javascript')
   
-    <!-- modal -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Get modal and buttons
-      const modal = document.getElementById("modalKirim");
-      const modalSukses = document.getElementById("modalSukses");
-      const modalKirimKonten = document.getElementById("modalKirimKonten");
-      const closeModalBtn = document.getElementById("closeModalBtn");
-      const submitBtn = document.getElementById("submitBtn");
-      // Open modal with fade animation
-      modalKirimKonten.addEventListener("click", function () {
-        modal.classList.remove("hidden");
-        modal.classList.add("opacity-100", "translate-y-0");
-      });
-      // Close modal with fade animation
-      closeModalBtn.addEventListener("click", function () {
-        modal.classList.remove("opacity-100", "translate-y-0");
-        modal.classList.add("opacity-0", "translate-y-4");
-        setTimeout(() => {
-          modal.classList.add("hidden");
-          modal.classList.remove("opacity-0", "translate-y-4");
-        }, 500);
-      });
-      // Submit form (you can customize this part to handle form submission)
-      submitBtn.addEventListener("click", function () {
-        // Get form data
-        const formData1 = new FormData(document.getElementById("uploadForm1"));
-        const formData2 = new FormData(document.getElementById("uploadForm2"));
-        const linkOrSource = document.querySelector("input[type='text']").value;
-        const detailInfo = document.querySelector("textarea").value;
-        const email = document.querySelector("input[type='email']").value;
-        // Handle form data as needed (e.g., send it to the server)
-        console.log("Form Data 1:", formData1);
-        console.log("Form Data 2:", formData2);
-        console.log("Link or Source:", linkOrSource);
-        console.log("Detail Info:", detailInfo);
-        console.log("Email:", email);
-        // Close modal with fade animation (you may want to do this after successful form submission)
-        modal.classList.remove("opacity-100", "translate-y-0");
-        modal.classList.add("opacity-0", "translate-y-4");
-        setTimeout(() => {
-          modal.classList.add("hidden");
-          modal.classList.remove("opacity-0", "translate-y-4");
-        }, 300);
-      });
-    });
-  </script>
-
-  <!-- swiper -->
-  <script type="module">
-    if (window.innerWidth >= 1279) {
-      import('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs').then((Swiper) => {
-        const swiper = new Swiper.default('.swiper', {
-          direction: 'horizontal',
-          loop: true,
-          slidesPerView: 'auto',
-          navigation: {
-            nextEl: '.next',
-            prevEl: '.prev',
-          },
-        });
-      });
-    }
-  </script>
 @endpush

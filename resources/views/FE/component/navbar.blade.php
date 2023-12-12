@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto">
       <div class="flex justify-between items-center h-20 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-32">
         <!-- logo -->
-        <a href="#" target="_blank" rel="noopener noreferrer">
+        <a href="{{ route('index') }}" rel="noopener noreferrer">
           <img class="w-20" loading="lazy" src="{{ asset('FE') }}/dist/images/logo-main.png" alt="My Happy SVG" />
         </a>
         <!-- Mobile menu button and menu for small screens -->
@@ -92,11 +92,11 @@
       });
     </script>
 
-     @if(request()->is('content/*'))
+     @if(request()->is(['content','content.*']))
        <!-- kembali -->
        <div class="max-w-full h-12 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-32 bg-zinc-100  text-red-400 flex items-center">
         <div class="flex w-[1024px] items-center mx-auto ">
-         <a href="index.html" class="flex flex-row items-center">
+         <a href="{{ url('') }}" class="flex flex-row items-center">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
            <g id="mingcute:arrow-right-line">
            <g id="Group">

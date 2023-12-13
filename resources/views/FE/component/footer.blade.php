@@ -9,7 +9,7 @@
             alt="Logo kenalikonten" srcset="{{ asset('FE') }}/dist/images/logo-main.png">
           <p class="sm:pt-2 text-[#333] font-[16px]">Kenali Konten adalah sebuah gerakan
             independen dan tidak terafiliasi kandidat atau partai politik tertentu</p>
-          <p class="py-3 sm:pt-2 text-[#fff]">© 2023 Kenali Konten</p>
+          <p class="py-3 sm:pt-2 text-[#fff]">© {{ date('Y') }} Kenali Konten</p>
         </div>
         
         <div class="w-[200px]">

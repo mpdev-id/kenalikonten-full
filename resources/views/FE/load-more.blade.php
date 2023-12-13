@@ -22,8 +22,9 @@
      </div>
    </div>
    @empty
-   <div class="w-full py-5 rounded-2xl bg-[#FFF] shadow-xl sm:mr-4 flex flex-col cursor-pointer transition-all ease-in-out duration-1000">
-    <div class="mx-auto">
-  belum tersedia
-    </div></div>
+   <div class="h-full flex outline-none placeholder-stone-300 text-base font-normal w-full max-w-full transition-all ease-in-out duration-700 bg-white-900 rounded">
+    <span class="mx-auto">
+          Belum tersedia
+    </span> 
+</div>
    @endforelse

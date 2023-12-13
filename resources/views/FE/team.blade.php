@@ -12,7 +12,7 @@
   </div>
   @forelse ($teams as $team)
   <div
-    class="tab {{ $team->id }} max-sm:px-5  sm:px-8 w-full bg-white shadow-xl relative mb-1 rounded-xl max-lg:m-4">
+    class="tab {{ $team->id }} max-sm:px-5 sm:px-8 w-full bg-white shadow-xl relative rounded-xl max-lg:mx-4">
     <input type="radio" name="faq" id="team{{ $team->id }}" class="appearance-none peer">
     <label for="team{{ $team->id }}"
       class="flex items-center gap-x-3 cursor-pointer font-semibold text-lg after:content-[url({{ asset('/FE/dist/images/down.png') }})] after:items-center after:absolute after:right-8 after:text-4xl after:text-gray-400 hover:after:text-gray-950 peer-checked:after:transform peer-checked:after:rotate-180 ">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Issue;
+use App\Models\Content;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -67,7 +68,8 @@ class FrontEndController extends Controller
     }
     function valid()
     {
-        return view("FE.valid");
+        $validations = Content::get(); 
+        return view("FE.valid", compact('validations'));
     }
     function content()
     {

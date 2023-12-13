@@ -61,7 +61,7 @@
   </div>
   <div class="mt-[49px] mx-auto">
 
-    <a id="modalKirimKonten" href="{{ route('content') }}"
+    <a id="modalKirimKonten" href="{{ route('index.content') }}"
     class="w-[250px] px-5 bg-[#FF7366] shadow-xl font-semibold rounded-full py-3 text-[#fff] ">
     Coba Sekarang
   </a>

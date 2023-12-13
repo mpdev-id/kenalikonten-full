@@ -37,7 +37,7 @@
   </div>
   <div
     class="font-bold text-xl mx-2 sm:text-3xl  text-center w-full pt-2 min-[1023px]:hidden transition-all ease-in-out duration-700">
-    Media Sosial Jadi <span class="text-[#FF7366] ">Sumber Hoaks</span><br> Terbesar Tahun 2023
+    Media Sosial Jadi <span class="text-[#FF7366] ">Sumber Hoaks</span><br> Terbesar Tahun {{ date('Y') }}
     </span>
   </div>
 </section>
@@ -63,7 +63,7 @@
           class="w-[250px] px-5 bg-[#FF7366] shadow-xl font-semibold rounded-full py-3 text-[#fff] ">
           Coba Sekarang
         </button>
-        <a href="{{route('valid')}}"
+        <a href="{{route('index.valid')}}"
           class="w-[250px] px-5 py-3 bg-[#fff] shadow-xl font-semibold rounded-full  text-[#FF7366] border-solid border-[1.5px] border-[#FF7366]">
           Lihat Konten Tervalidasi
         </a>
@@ -138,11 +138,11 @@
         </div>
         <div class="w-[245px] max-[1024px]:w-full mx-auto">
           <p class="text-center">
-            {{ $team->information }}
+            {{ strlen($team->information) > 45 ? substr($team->information, 0, 45) . '...' : $team->information }}
           </p>
         </div>
         <div class="mx-auto">
-          <a href="https://google.com" target="_blank" class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
+          <a href="{{ $team->link_join }}" target="_blank" class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
             Daftar
             <img class="w-6" src="{{ asset('FE') }}/dist/images/ic-arrow-right.png" alt="Detail {{ $team->title }}">
           </a>
@@ -194,7 +194,7 @@
   <div
     class="bg-[#F7F7F7] rounded-lg shadow-xl w-[400px] sm:w-[600px]  opacity-100 transform transition-transform duration-400 p-8">
     <div class="flex justify-end">
-      <a href="{{route('index')}}" id="closeModalBtn">
+      <a href="{{route('index.home')}}" id="closeModalBtn">
         <svg class="bg-[#FFE4E1] w-[32px] h-[32px] rounded-full" xmlns="http://www.w3.org/2000/svg"
           width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path
@@ -224,7 +224,7 @@
           Jangan sebar berita atau konten sebelum kamu mencari tahu kebenarannya.
         </span>
       </div>
-      <a href="{{ route('index') }}"
+      <a href="{{ route('index.home') }}"
         class="text-white text-base font-semibold whitespace-nowrap  shadow-lg bg-red-400 mt-7 px-16 py-3 rounded-[50px] max-md:max-w-full max-md:px-5 text-center">
         Saya Mengerti
       </a>
@@ -259,7 +259,7 @@
         **Terdapat kesalahan dalam pengisian form. Mohon periksa kembali.
       </div>
       @endif
-      <form action="{{ route('upload') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ route('index.upload') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="my-4">
           <span class="text-[#000] mb-2">Screenshoot 1<span class="text-[#FF1F39]">*</span></span>
@@ -373,7 +373,7 @@
       import('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs').then((Swiper) => {
         const swiper = new Swiper.default('.swiper', {
           direction: 'horizontal',
-          loop: true,
+          loop: false,
           slidesPerView: 'auto',
           navigation: {
             nextEl: '.next',

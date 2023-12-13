@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->enum('status', ['hoax','fakta'])->default(NULL);
             $table->string('foto')->default(NULL);
-            $table->string('content')->default(NULL);
+            $table->text('content')->default(NULL);
             $table->timestamps();
         });
     }

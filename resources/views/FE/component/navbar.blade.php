@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto">
       <div class="flex justify-between items-center h-20 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-32">
         <!-- logo -->
-        <a href="{{ route('index') }}" rel="noopener noreferrer">
+        <a href="{{ route('index.home') }}" rel="noopener noreferrer">
           <img class="w-20" loading="lazy" src="{{ asset('FE') }}/dist/images/logo-main.png" alt="My Happy SVG" />
         </a>
         <!-- Mobile menu button and menu for small screens -->
@@ -24,15 +24,15 @@
               class="flex flex-col px-6 gap-y-8 sm:px-8 md:px-16 lg:px-20 xl:px-32 transition-all ease-in-out delay-800">
               <li
                 class="hover:cursor-pointer font-medium text-base mt-8 transition-all ease-in-out delay-300 {{ request()->is('/') ? ' text-[#FF7366] ' : 'text-[#333]' }}">
-               <a href="{{ route('index') }}"> Beranda</a> 
+               <a href="{{ route('index.home') }}"> Beranda</a> 
               </li>
               <li
                 class="hover:cursor-pointer {{ request()->is('validasi') ? ' text-[#FF7366] ' : 'text-[#333]' }} hover:text-[#FF7366]  font-medium text-base transition-all ease-in-out delay-300">
-                <a href="{{ route('valid') }}">  Konten Tervalidasi</a>
+                <a href="{{ route('index.valid') }}">  Konten Tervalidasi</a>
               </li>
               <li
                 class="hover:cursor-pointer {{ request()->is('donatur') ? ' text-[#FF7366] ' : 'text-[#333]' }} hover:text-[#FF7366]  font-medium text-base transition-all ease-in-out delay-300">
-                <a href="{{ route('donatur') }}"> Donatur</a>
+                <a href="{{ route('index.donatur') }}"> Donatur</a>
               </li>
               <li class="hover:cursor-pointer text-base">
                 <div class="bg-[#FF7366] text-white px-5 py-3 rounded-full shadow-xl w-fit font-semibold ">
@@ -46,15 +46,15 @@
         <ul class="hidden xl:flex flex-row gap-x-8 items-center">
           <li
             class="hover:cursor-pointer font-medium text-base transition-all ease-in-out duration-400 {{ request()->is('/') ? ' text-[#FF7366] underline underline-offset-[33px] decoration-[3px]' : 'text-[#333]' }}">
-            <a href="{{ route('index') }}"> Beranda </a>
+            <a href="{{ route('index.home') }}"> Beranda </a>
           </li>
           <li
             class="hover:cursor-pointer hover:underline hover:underline-offset-[33px] hover:decoration-[3px] text-[#333] hover:text-[#FF7366] font-medium text-base transition-all ease-in-out duration-400 {{ request()->is(['validasi','validasi/*']) ? ' text-[#FF7366] underline underline-offset-[33px] decoration-[3px] ' : 'text-[#333]' }}">
-            <a href="{{ route('valid') }}">Konten Tervalidasi</a>
+            <a href="{{ route('index.valid') }}">Konten Tervalidasi</a>
           </li>
           <li
             class="hover:cursor-pointer hover:underline hover:underline-offset-[33px] hover:decoration-[3px] text-[#333] hover:text-[#FF7366] font-medium text-base transition-all ease-in-out duration-400 {{ request()->is('donatur') ? ' text-[#FF7366] underline underline-offset-[33px] decoration-[3px] ' : 'text-[#333]' }}">
-            <a href="{{ route('donatur') }}">Donatur</a>
+            <a href="{{ route('index.donatur') }}">Donatur</a>
           </li>
           <div
             class="hover:cursor-pointer text-base transition-all ease-in-out duration-400">

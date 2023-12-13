@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('information');
             $table->enum('status',['on','off'])->default('on');
+            $table->string('link_join');
             $table->timestamps();
         });
     }

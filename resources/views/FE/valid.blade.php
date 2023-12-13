@@ -34,30 +34,35 @@
   </div>
 
   <div class="sm:w-[936px] flex flex-wrap mx-auto max-[1240px]:flex-col mt-5 mb-10 overscroll-none p-3 gap-y-3 transition-all ease-in-out duration-700 ">
-    @for ($i = 0; $i < 6; $i++) 
+    {{-- @for ($i = 0; $i < 6; $i++)  --}}
+    @forelse($validations as $valid)
     <div class="max-[1279px]:min-w-full p-4 lg:w-[279px] max-[1279px]:h-[540px] rounded-2xl bg-[#FFF] gap-y-2 shadow-xl sm:mr-4 flex flex-col cursor-pointer transition-all ease-in-out duration-700">
-     <div class="mx-auto ">
-       <img class="w-auto h-96 xl:h-44 rounded " src="{{ asset('FE/dist/images/sample.png') }}" />
-     </div>
-     <div class="w-16 h-7 px-3 py-1 bg-rose-600 bg-opacity-20 rounded-2xl justify-start items-center gap-2.5 inline-flex">
-      <div class="text-rose-600 text-sm font-normal font-['Poppins']">Hoaks</div>
-  </div>
+      <div class="mx-auto">
+        <img class="w-full h-96 xl:h-44 object-scale-down rounded" src="{{ asset($valid->foto) }}" />
+    </div>
+     <div class="w-16 h-7 px-3 py-1 {{ $valid->status == 'hoax' ?'bg-rose-600': 'bg-lime-600' }}  bg-opacity-20 rounded-2xl justify-start items-center gap-2.5 inline-flex text-center ">
+      <div class="{{ $valid->status == 'hoax' ?'text-rose-600': 'text-lime-600' }} text-sm font-normal font-['Poppins'] text-center">{{ $valid->status == 'hoax' ?'Hoax': 'Fakta' }}</div>
+   </div>
      <div class="xl:w-[245px] min-[1024px]:w-full mx-auto flex flex-col gap-y-2">
       
-      <div class="text-zinc-500 text-sm font-normal">3 jam yang lalu</div>
-        <h2 class="font-semibold">
-        Tim yang akan mencari sumber..
+      <div class="text-zinc-500 text-sm font-normal">{{ \Carbon\Carbon::parse($valid->created_at)->locale('id')->diffForHumans() }}</div>
+        <h2 class=" text-zinc-800 text-lg font-semibold font-semibold">
+          {{ strlen($valid->title) > 30 ? substr($valid->title, 0, 30) . '...' : $valid->title }}
+
         </h2>
      </div>
 
      <div class="mx-auto xl:pb-2 transition ease-in-out duration-700">
-      <a href="{{ route('content') }}" class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
+      <a href="{{ route('index.content') }}" class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
        Baca Selengkapnya
        <img class="w-6" src="{{ asset('FE') }}/dist/images/ic-arrow-right.png" alt="Detail">
       </a>
      </div>
    </div>
-   @endfor
+   @empty
+   belum tersedia
+   @endforelse
+   {{-- @endfor --}}
   </div>
   <div class="mt-[30px] mx-auto">
 

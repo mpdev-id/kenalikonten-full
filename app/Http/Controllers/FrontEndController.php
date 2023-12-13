@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Issue;
 use App\Models\Content;
+use App\Models\Donatur;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -101,7 +102,8 @@ class FrontEndController extends Controller
     }
     function donatur()
     {
-        return view("FE.donatur");
+        $donaturs = Donatur::all();
+        return view("FE.donatur",compact('donaturs'));
     }
     function team()
     {

@@ -101,6 +101,7 @@ class FrontEndController extends Controller
     }
     function team()
     {
-        return view("FE.team");
+        $teams = team::get();
+        return view("FE.team",compact('teams'));
     }
 }

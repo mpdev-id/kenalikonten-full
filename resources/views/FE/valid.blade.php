@@ -53,7 +53,7 @@
      </div>
 
      <div class="mx-auto xl:pb-2 transition ease-in-out duration-700">
-      <a href="{{ route('index.content') }}" class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
+      <a href="{{ route('index.content', $valid->slug) }}" class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
        Baca Selengkapnya
        <img class="w-6" src="{{ asset('FE') }}/dist/images/ic-arrow-right.png" alt="Detail">
       </a>

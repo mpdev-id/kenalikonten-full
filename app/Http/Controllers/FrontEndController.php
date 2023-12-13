@@ -71,9 +71,10 @@ class FrontEndController extends Controller
         $validations = Content::get(); 
         return view("FE.valid", compact('validations'));
     }
-    function content()
+    function content($slug)
     {
-        return view("FE.content");
+        $content = Content::where('slug',  $slug)->first();
+        return view("FE.content", compact('content'));
     }
     function donatur()
     {

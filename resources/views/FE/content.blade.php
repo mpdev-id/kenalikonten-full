@@ -2,75 +2,60 @@
 @section('title','kenalikonten.com')
 @section('content')
 {{-- content --}}
-<section
-  class="flex flex-wrap justify-between items-center mt-8 max-w-5xl mx-auto transition-all ease-in-out duration-700">
-  <div class="text-center flex flex-col gap-y-3 w-full">
-    <h2 class="text-4xl font-semibold">Daftar Konten Tervalidasi</h2>
-    <p class="text-base font-normal md:w-[661px] mx-auto">
-      Seluruh konten atau berita yang dikirim pembaca dan telah divalidasi oleh tim Kenali Konten, terkurasi pada halaman ini.
-    </p>
-    <div class="m-4 h-[46px] px-7 py-2.5 bg-white rounded-xl justify-between items-center inline-flex">
-      <div class="text-stone-300 text-base font-normal w-full overflow-hidden">
-        <input id="cari" type="text" placeholder="Ketik judul atau apapun yang ingin kamu cari"
-          class="h-full flex outline-none placeholder-stone-300 text-base font-normal w-full max-w-full transition-all ease-in-out duration-700" />
-      </div>
-      <div for="cari" class="w-8 h-6 relative bg-white-900">
-        <div class="w-6 h-6 left-0 top-0 absolute">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_46_15751)">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M10.5 2C9.1446 2.00012 7.80887 2.32436 6.60427 2.94569C5.39966 3.56702 4.3611 4.46742 3.57525 5.57175C2.78939 6.67609 2.27902 7.95235 2.08672 9.29404C1.89442 10.6357 2.02576 12.004 2.46979 13.2846C2.91382 14.5652 3.65766 15.7211 4.63925 16.6557C5.62084 17.5904 6.81171 18.2768 8.11252 18.6576C9.41333 19.0384 10.7864 19.1026 12.117 18.8449C13.4477 18.5872 14.6975 18.015 15.762 17.176L19.414 20.828C19.6026 21.0102 19.8552 21.111 20.1174 21.1087C20.3796 21.1064 20.6304 21.0012 20.8158 20.8158C21.0012 20.6304 21.1064 20.3796 21.1087 20.1174C21.111 19.8552 21.0102 19.6026 20.828 19.414L17.176 15.762C18.164 14.5086 18.7792 13.0024 18.9511 11.4157C19.123 9.82905 18.8448 8.22602 18.1482 6.79009C17.4517 5.35417 16.3649 4.14336 15.0123 3.29623C13.6597 2.44911 12.096 1.99989 10.5 2ZM4.00001 10.5C4.00001 8.77609 4.68483 7.12279 5.90382 5.90381C7.1228 4.68482 8.7761 4 10.5 4C12.2239 4 13.8772 4.68482 15.0962 5.90381C16.3152 7.12279 17 8.77609 17 10.5C17 12.2239 16.3152 13.8772 15.0962 15.0962C13.8772 16.3152 12.2239 17 10.5 17C8.7761 17 7.1228 16.3152 5.90382 15.0962C4.68483 13.8772 4.00001 12.2239 4.00001 10.5Z"
-                fill="#BDBDBD" />
-            </g>
-            <defs>
-              <clipPath id="clip0_46_15751">
-                <rect width="24" height="24" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sm:w-[936px] flex flex-wrap mx-auto max-[1240px]:flex-col mt-5 mb-10 overscroll-none p-3 gap-y-3 transition-all ease-in-out duration-700 ">
-    @for ($i = 0; $i < 6; $i++) 
-    <div class="max-[1279px]:min-w-full p-4 lg:w-[279px] max-[1279px]:h-[540px] rounded-2xl bg-[#FFF] gap-y-2 shadow-xl sm:mr-4 flex flex-col cursor-pointer transition-all ease-in-out duration-700">
-     <div class="mx-auto">
-       <img class="w-96 h-96 xl:h-44 rounded " src="https://via.placeholder.com/277x170" />
-     </div>
-     <div class="w-16 h-7 px-3 py-1 bg-rose-600 bg-opacity-20 rounded-2xl justify-start items-center gap-2.5 inline-flex">
-      <div class="text-rose-600 text-sm font-normal font-['Poppins']">Hoaks</div>
-  </div>
-     <div class="xl:w-[245px] min-[1024px]:w-full mx-auto flex flex-col gap-y-2">
+<section class="flex flex-col justify-between mt-8 max-w-5xl mx-auto transition-all ease-in-out duration-700 ">
+  <div class="m-4 h-full px-7 rounded-xl items-center">
+    <h2 class="text-4xl font-semibold py-2">{{ $content->title }}</h2>
+    
+    <div class="text-zinc-500 text-base font-normal font-['Poppins'] md:w-[661px]">
+      {{ \Carbon\Carbon::parse($content->created_at)->locale('id')->diffForHumans() }} • <span id="estimated-reading-time"></span> membaca 
       
-      <div class="text-zinc-500 text-sm font-normal">3 jam yang lalu</div>
-        <h2 class="font-semibold">
-        Tim yang akan mencari sumber keaslian konten yang dikirim pengguna
-        </h2>
-     </div>
 
-     <div class="mx-auto xl:pb-2 transition ease-in-out duration-700">
-      <a href="#" class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
-       Baca Selengkapnya
-       <img class="w-6" src="{{ asset('FE') }}/dist/images/ic-arrow-right.png" alt="Detail">
-      </a>
-     </div>
-   </div>
-   @endfor
+
+    </div>
+    <div class="bg-white my-2 rounded">
+      <img class="w-full object-contain md:object-scale-down" src="{{ asset($content->foto) }}" />
+    </div>
+    <div id="content">
+      {!! $content->content !!}
+    </div>
+
   </div>
-  <div class="mt-[49px] mx-auto">
 
-    <a id="modalKirimKonten" href="{{ route('index.content') }}"
-    class="w-[250px] px-5 bg-[#FF7366] shadow-xl font-semibold rounded-full py-3 text-[#fff] ">
-    Coba Sekarang
-  </a>
-</div>
-   
-   
+
+
+ @if(request()->is('content/*'))
+ <!-- kembali -->
+ <div class="max-w-full text-red-400 flex items-center mt-10">
+  <div class="flex items-center ">
+   <a href="{{ route('index.valid') }}" class="flex flex-row items-center">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <g id="mingcute:arrow-right-line">
+     <g id="Group">
+     <path id="Vector" d="M6.96975 13.773L2.727 9.53024C2.5864 9.38959 2.50741 9.19886 2.50741 8.99999C2.50741 8.80111 2.5864 8.61038 2.727 8.46974L6.96975 4.22699C7.1112 4.09037 7.30065 4.01477 7.4973 4.01648C7.69395 4.01819 7.88206 4.09707 8.02111 4.23612C8.16017 4.37518 8.23905 4.56329 8.24076 4.75994C8.24246 4.95658 8.16687 5.14603 8.03025 5.28749L5.06775 8.24999L15 8.24999C15.1989 8.24999 15.3897 8.329 15.5303 8.46966C15.671 8.61031 15.75 8.80107 15.75 8.99999C15.75 9.1989 15.671 9.38966 15.5303 9.53032C15.3897 9.67097 15.1989 9.74999 15 9.74999L5.06775 9.74999L8.03025 12.7125C8.10188 12.7817 8.15902 12.8644 8.19833 12.9559C8.23763 13.0474 8.25832 13.1459 8.25919 13.2454C8.26005 13.345 8.24108 13.4438 8.20337 13.536C8.16566 13.6281 8.10997 13.7119 8.03955 13.7823C7.96913 13.8527 7.88539 13.9084 7.79322 13.9461C7.70104 13.9838 7.60228 14.0028 7.5027 14.0019C7.40312 14.0011 7.3047 13.9804 7.2132 13.9411C7.12169 13.9018 7.03894 13.8446 6.96975 13.773Z" fill="#FF7366"/>
+     </g>
+     </g>
+     </svg>
+      kembali
+   </a>   
+  </div>
+ </div>
+@endif
 </section>
 @endsection
 
 
 @push('javascript')
+<script>
+  function estimateReadingTime() {
+  const contentText = document.getElementById("content").textContent; // Replace "#content" with your content element ID
+  const wordsPerMinute = 200; // Adjust this value based on the average reading speed
+  const readingTimeInMinutes = Math.ceil(contentText.split(/\s+/).length / wordsPerMinute);
+  const readingTimeString = readingTimeInMinutes === 1 ? `${readingTimeInMinutes} menit` : `${readingTimeInMinutes} menit`;
+  document.getElementById("estimated-reading-time").textContent = ` ${readingTimeString}`;
+}
+
+estimateReadingTime();
+
+</script>
+
 @endpush

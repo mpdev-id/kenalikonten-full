@@ -10,14 +10,10 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet">
-      @vite('resources/css/app.css')
-      <script script src="https://cdn.tailwindcss.com"></script>
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-  />
-  
-   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    @vite('resources/css/app.css')
+    <script script src="https://cdn.tailwindcss.com/3.3.5"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <style>
       /* Tambahkan gaya untuk preloader */
       #preloader {
@@ -55,19 +51,19 @@
         /* Sesuaikan ukuran gambar preloader */
         height: auto;
       }
-
-  
-        /* Animasi putar untuk indikator sedang memuat */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+      /* Animasi putar untuk indikator sedang memuat */
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
         }
-
-        /* Tambahkan gaya untuk indikator sedang memuat */
-        .animate-spin {
-            animation: spin 1s linear infinite;
+        100% {
+          transform: rotate(360deg);
         }
-    
+      }
+      /* Tambahkan gaya untuk indikator sedang memuat */
+      .animate-spin {
+        animation: spin 1s linear infinite;
+      }
     </style>
   </head>
   <body class="font-[poppins] bg-[#F7F7F7] ">
@@ -79,17 +75,11 @@
     </div>
     <!-- navbar -->
     <div id="blur-background"
-    class="fixed top-0 left-0 w-full h-full hidden bg-slate-700 opacity-50 bg-cover"></div>
+      class="fixed top-0 left-0 w-full h-full hidden bg-slate-700 opacity-50 bg-cover"></div>
     @include("FE.component.navbar")
-    
     @yield('content')
-  
-  
-    
     @include('FE.component.footer')
-
     @yield('modal')
   </body>
-
- @stack('javascript')
+  @stack('javascript')
 </html>

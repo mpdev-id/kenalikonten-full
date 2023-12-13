@@ -1,5 +1,5 @@
 @forelse($validations as $valid)
-    <div class="max-[1279px]:min-w-full p-4 lg:w-[279px] max-[1279px]:h-[540px] rounded-2xl bg-[#FFF] gap-y-2 shadow-xl sm:mr-4 flex flex-col cursor-pointer transition-all ease-in-out duration-1000">
+    <div class="max-[1279px]:min-w-full p-4 lg:w-[279px] max-[1279px]:h-[540px] rounded-2xl bg-[#FFF] gap-y-2 shadow-xl sm:mr-4 flex flex-col cursor-pointer transition-all ease-in-out duration-1000 ">
       <div class="mx-auto">
         <img class="w-full h-96 xl:h-44 object-scale-down rounded" src="{{ asset($valid->foto) }}" />
     </div>
@@ -24,7 +24,16 @@
    @empty
    <div class="h-full flex outline-none placeholder-stone-300 text-base font-normal w-full max-w-full transition-all ease-in-out duration-700 bg-white-900 rounded">
     <span class="mx-auto">
-          Belum tersedia
+          data tidak tersedia
     </span> 
 </div>
    @endforelse
+
+   @if ($validations->count() > 5)
+  <div class="mt-[30px] mx-auto">
+  <button id="load-more" class="w-[250px] px-5 bg-[#FF7366] shadow-xl font-semibold rounded-full py-3 text-[#fff] ">
+    <span id="load-more-text">Lihat lebih banyak</span>  
+    <span id="loading-indicator" class="hidden ml-2 animate-ping"> Memuat </span>
+  </button>
+  </div>    
+  @endif 

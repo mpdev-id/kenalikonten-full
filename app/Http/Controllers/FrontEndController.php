@@ -81,14 +81,18 @@ class FrontEndController extends Controller
     
     public function cariValidasi(Request $request)
         {
-            // if ($request->ajax()) {
-                $validations = Content::orWhere('title', 'LIKE', $request->search . '%')
-                ->orWhere('status', 'LIKE', $request->search . '%')
-                ->orWhere('content', 'LIKE', $request->search . '%')
-                ->get();
-                return view('FE.load-more', compact('validations'));
-                // return response()->json($validations);
-            // }
+            $search = $request->search;
+
+            if (!empty($search)) {
+                $validations = Content::orWhere('title', 'LIKE', '%' . $search . '%')
+                    ->orWhere('status', 'LIKE', '%' . $search . '%')
+                    ->orWhere('content', 'LIKE', '%' . $search . '%')
+                    ->get();
+            } else {
+                $validations = Content::paginate(6);
+            }
+        
+            return view('FE.load-more', compact('validations'));
         }
     function content($slug)
     {

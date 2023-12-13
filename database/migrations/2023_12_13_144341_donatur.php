@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('donaturs', function (Blueprint $table) {
             $table->id();
-            
+            $table->string('icon');
+            $table->string('name');
+            $table->string('donation');
+            $table->enum('status',['on','off'])->default('on');
             $table->timestamps();
         });
     }

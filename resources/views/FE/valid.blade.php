@@ -31,7 +31,7 @@
 
  <div id="loadDisiniDong" class="sm:w-[936px] flex flex-wrap mx-auto max-[1240px]:flex-col mt-5 mb-10 overscroll-none p-3 gap-y-3 transition-all ease-in-out duration-1000 ">
 
-  @forelse($validations as $valid)
+  @forelse($validations as $key=>$valid)
   <div class="max-[1279px]:min-w-full p-4 lg:w-[279px] max-[1279px]:h-[540px] rounded-2xl bg-[#FFF] gap-y-2 shadow-xl sm:mr-4 flex flex-col cursor-pointer transition-all ease-in-out duration-1000">
    <div class="mx-auto">
     <img class="w-full h-96 xl:h-44 object-scale-down rounded" src="{{ asset($valid->foto) }}" />
@@ -44,10 +44,8 @@
     <div class="text-zinc-500 text-sm font-normal">{{ \Carbon\Carbon::parse($valid->created_at)->locale('id')->diffForHumans() }}</div>
     <h2 class=" text-zinc-800 text-lg font-semibold font-semibold">
      {{ strlen($valid->title) > 30 ? substr($valid->title, 0, 30) . '...' : $valid->title }}
-
     </h2>
    </div>
-
    <div class="mx-auto xl:pb-2 transition ease-in-out duration-700">
     <a href="{{ route('index.content', $valid->slug) }}" class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
      Baca Selengkapnya
@@ -55,28 +53,23 @@
     </a>
    </div>
   </div>
-
-  
   @empty
+  <div class="w-full py-5 rounded-2xl bg-[#FFF] shadow-xl sm:mr-4 flex flex-col cursor-pointer transition-all ease-in-out duration-1000">
+    <div class="mx-auto">
   belum tersedia
+    </div></div>
   @endforelse
-
- </div>
- <div class="mt-[30px] mx-auto">
-  <button id="load-more" class="w-[250px] px-5 bg-[#FF7366] shadow-xl font-semibold rounded-full py-3 text-[#fff] ">
-   <span id="load-more-text">Lihat lebih banyak</span>  
-   <span id="loading-indicator" class="hidden ml-2 animate-ping"> Memuat </span>
-  </button>
  </div>
 
- {{--
-  <div class="mt-[30px] mx-auto">
+@if ($validations->count() > 0)
+<div class="mt-[30px] mx-auto">
+ <button id="load-more" class="w-[250px] px-5 bg-[#FF7366] shadow-xl font-semibold rounded-full py-3 text-[#fff] ">
+  <span id="load-more-text">Lihat lebih banyak</span>  
+  <span id="loading-indicator" class="hidden ml-2 animate-ping"> Memuat </span>
+ </button>
+</div>    
+@endif 
 
-    <button id="load-more"
-    class="w-[250px] px-5 bg-[#FF7366] shadow-xl font-semibold rounded-full py-3 text-[#fff] ">
-   Lihat lebih banyak
-  </button>
-</div> --}}
 </section>
 @endsection
 

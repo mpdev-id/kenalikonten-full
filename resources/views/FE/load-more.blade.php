@@ -7,7 +7,6 @@
       <div class="{{ $valid->status == 'hoax' ?'text-rose-600': 'text-lime-600' }} text-sm font-normal font-['Poppins'] text-center">{{ $valid->status == 'hoax' ?'Hoax': 'Fakta' }}</div>
    </div>
      <div class="xl:w-[245px] min-[1024px]:w-full mx-auto flex flex-col gap-y-2">
-      
       <div class="text-zinc-500 text-sm font-normal">{{ \Carbon\Carbon::parse($valid->created_at)->locale('id')->diffForHumans() }}</div>
         <h2 class=" text-zinc-800 text-lg font-semibold font-semibold">
           {{ strlen($valid->title) > 30 ? substr($valid->title, 0, 30) . '...' : $valid->title }}
@@ -23,5 +22,8 @@
      </div>
    </div>
    @empty
-   
+   <div class="w-full py-5 rounded-2xl bg-[#FFF] shadow-xl sm:mr-4 flex flex-col cursor-pointer transition-all ease-in-out duration-1000">
+    <div class="mx-auto">
+  belum tersedia
+    </div></div>
    @endforelse

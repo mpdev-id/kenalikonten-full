@@ -55,6 +55,19 @@
         /* Sesuaikan ukuran gambar preloader */
         height: auto;
       }
+
+  
+        /* Animasi putar untuk indikator sedang memuat */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Tambahkan gaya untuk indikator sedang memuat */
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+    
     </style>
   </head>
   <body class="font-[poppins] bg-[#F7F7F7] ">

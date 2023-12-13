@@ -68,9 +68,28 @@ class FrontEndController extends Controller
     }
     function valid()
     {
-        $validations = Content::get(); 
+        $validations = Content::paginate(6); 
         return view("FE.valid", compact('validations'));
     }
+    public function loadMoreValidations(Request $request)
+    {
+        $page = $request->get('page', 1);
+        $validations = Content::paginate(3, ['*'], 'page', $page);
+    
+        return view('FE.load-more', compact('validations'));
+    }  
+    
+    public function cariValidasi(Request $request)
+        {
+            // if ($request->ajax()) {
+                $validations = Content::orWhere('title', 'LIKE', $request->search . '%')
+                ->orWhere('status', 'LIKE', $request->search . '%')
+                ->orWhere('content', 'LIKE', $request->search . '%')
+                ->get();
+                return view('FE.load-more', compact('validations'));
+                // return response()->json($validations);
+            // }
+        }
     function content($slug)
     {
         $content = Content::where('slug',  $slug)->first();

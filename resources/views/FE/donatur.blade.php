@@ -20,19 +20,19 @@
  <div
  class="tab {{ $donatur->id }} max-sm:px-5 sm:px-8 w-full bg-white shadow-xl relative rounded-xl max-lg:mx-4">
  <label for="donatur{{ $donatur->id }}"
-   class="flex items-center justify-between gap-x-3 font-semibold text-lg -4xl hover:after:text-gray-950 peer h-20">
+   class="flex items-center justify-between gap-x-3 font-semibold text-lg -4xl hover:text-gray-950 h-20">
   
    <div class="flex items-center gap-x-3">
      <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center">
-       <div class="w-[30px] h-[30px] flex items-center mx-auto">
+       <div class="w-[30px] h-[30px] flex items-center mx-auto  transition-all ease-in-out duration-700">
          <img src="{{ asset($donatur->icon) }}" alt="">
         </div>
    </div>
     <h3>{{ $donatur->name }}</h3>
   </div>
   <div class="flex flex-col text-center">
-    <div class="text-center text-zinc-800 text-sm font-normal font-['Poppins']">{{ date_format($donatur->created_at, "Y-m-d") }}</div>
-    <div class="text-center text-zinc-800 text-base font-semibold font-['Poppins']">{{ $donatur->donation }}</div>
+    <div class="text-center text-zinc-800 text-sm font-normal font-['Poppins']  transition-all ease-in-out duration-700">{{ date_format($donatur->created_at, "Y-m-d") }}</div>
+    <div class="text-center text-zinc-800 text-base font-semibold font-['Poppins']  transition-all ease-in-out duration-700">{{ $donatur->donation }}</div>
 
   </div>
   </label>

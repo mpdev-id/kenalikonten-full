@@ -16,7 +16,7 @@
           <ul>
             <h2 class="font-bold text-[18px] xl:pb-3">Eksplor</h2>
             <li class="pb-1 xl:pb-3">
-              <a class="font-normal" href="{{route('index.team')}}">Tim Kami</a>
+              <a class="font-normal {{ request()->is('tim-kami') ? ' text-[#FF7366] font-semibold' : 'text-[#333]' }}" href="{{route('index.team')}}">Tim Kami</a>
             </li>
             <li class="pb-1 xl:pb-3 transition-all ease-in-out duration-700">
               <a class="font-normal" href="#">TurunTangan Serang</a>

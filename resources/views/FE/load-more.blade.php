@@ -8,9 +8,8 @@
    </div>
      <div class="xl:w-[245px] min-[1024px]:w-full mx-auto flex flex-col gap-y-2">
       <div class="text-zinc-500 text-sm font-normal">{{ \Carbon\Carbon::parse($valid->created_at)->locale('id')->diffForHumans() }}</div>
-        <h2 class=" text-zinc-800 text-lg font-semibold font-semibold">
+      <h2 class=" text-zinc-800 text-lg font-semibold font-semibold">
           {{ strlen($valid->title) > 30 ? substr($valid->title, 0, 30) . '...' : $valid->title }}
-
         </h2>
      </div>
 

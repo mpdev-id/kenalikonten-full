@@ -102,7 +102,7 @@ class FrontEndController extends Controller
     }
     function donatur()
     {
-        $donaturs = Donatur::all();
+        $donaturs = Donatur::orderby('created_at','desc')->get();
         return view("FE.donatur",compact('donaturs'));
     }
     function team()

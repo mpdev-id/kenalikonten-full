@@ -39,6 +39,11 @@
    
 </div>
 @empty
+<div class="h-full flex outline-none placeholder-stone-300 text-base font-normal w-full max-w-full transition-all ease-in-out duration-700 bg-white-900 rounded">
+  <span class="mx-auto">
+   Donatur belum tersedia
+  </span>
+ </div>
 
 @endforelse
 </div>

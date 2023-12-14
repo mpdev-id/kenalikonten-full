@@ -8,10 +8,12 @@
   <p class="text-base font-normal md:w-[661px] mx-auto">
    Seluruh konten atau berita yang dikirim pembaca dan telah divalidasi oleh tim Kenali Konten, terkurasi pada halaman ini.
   </p>
+  @if($validations->count() > 1)  
   <div class="m-4 h-[46px] px-7 py-2.5 bg-white rounded-xl justify-between items-center inline-flex">
    <div class="text-stone-300 text-base font-normal w-full overflow-hidden">
-    <input id="cari" type="text" placeholder="Ketik judul atau apapun yang ingin kamu cari" class="h-full flex outline-none placeholder-stone-300 text-base font-normal w-full max-w-full transition-all ease-in-out duration-700" />
-   </div>
+       <input id="cari" type="text" placeholder="Ketik judul atau apapun yang ingin kamu cari" class="h-full flex outline-none placeholder-stone-300 text-base font-normal w-full max-w-full transition-all ease-in-out duration-700" />
+    </div>
+    
    <div for="cari" class="w-8 h-6 relative bg-white-900">
     <div class="w-6 h-6 left-0 top-0 absolute">
      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,12 +28,14 @@
      </svg>
     </div>
    </div>
+   @endif
+
   </div>
  </div>
 
  <div id="loadDisiniDong" class="sm:w-[936px] flex flex-wrap mx-auto max-[1240px]:flex-col mt-5 mb-10 overscroll-none p-3 gap-y-3 transition-all ease-in-out duration-1000 ">
 
-  @forelse($validations as $key=>$valid)
+  @forelse($validations as $key => $valid)
   <div class="max-[1279px]:min-w-full p-4 lg:w-[279px] max-[1279px]:h-[540px] rounded-2xl bg-[#FFF] gap-y-2 shadow-xl sm:mr-4 flex flex-col cursor-pointer transition-all ease-in-out duration-1000">
    <div class="mx-auto">
     <img class="w-full h-96 xl:h-44 object-scale-down rounded" src="{{ asset($valid->foto) }}" />
@@ -46,6 +50,7 @@
      {{ strlen($valid->title) > 30 ? substr($valid->title, 0, 30) . '...' : $valid->title }}
     </h2>
    </div>
+   
    <div class="mx-auto xl:pb-2 transition ease-in-out duration-700">
     <a href="{{ route('index.content', $valid->slug) }}" class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
      Baca Selengkapnya
@@ -56,13 +61,13 @@
   @empty
   <div class="h-full flex outline-none placeholder-stone-300 text-base font-normal w-full max-w-full transition-all ease-in-out duration-700 bg-white-900 rounded">
     <span class="mx-auto">
-          Belum tersedia
+          Konten Belum tersedia
     </span> 
 </div>
   @endforelse
  </div>
 
-@if ($validations->count() > 0)
+@if($validations->count() > 5)  
 <div class="mt-[30px] mx-auto">
  <button id="load-more" class="w-[250px] px-5 bg-[#FF7366] shadow-xl font-semibold rounded-full py-3 text-[#fff] ">
   <span id="load-more-text">Lihat lebih banyak</span>  

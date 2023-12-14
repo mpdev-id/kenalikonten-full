@@ -149,9 +149,15 @@
         </div>
     </div>
     @empty
-          team not found
+    <div class="h-full flex outline-none placeholder-stone-300 text-base font-normal w-full max-w-full transition-all ease-in-out duration-700 bg-white-900 rounded">
+      <span class="mx-auto">
+       belum tersedia
+      </span>
+     </div>
+  
     @endforelse
   </div>
+  @if ($teams->count()>3)
   <div class="mx-auto flex gap-x-6 pb-[55px] ">
     <a class="prev max-[1280px]:hidden block">
       <img class="w-8 " src="{{ asset('FE') }}/dist/images/ic-arrow-slide-left.png" alt="">
@@ -160,6 +166,8 @@
       <img class="w-8 " src="{{ asset('FE') }}/dist/images/ic-arrow-slide-right.png" alt="">
     </a>
   </div>
+  @endif 
+      
   </div>
 </section>
 <!-- contact us -->

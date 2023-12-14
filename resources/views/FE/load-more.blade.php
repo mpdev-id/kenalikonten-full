@@ -24,16 +24,17 @@
    @empty
    <div class="h-full flex outline-none placeholder-stone-300 text-base font-normal w-full max-w-full transition-all ease-in-out duration-700 bg-white-900 rounded">
     <span class="mx-auto">
-          data tidak tersedia
-    </span> 
-</div>
+     data tidak tersedia
+    </span>
+   </div>
+
    @endforelse
 
-   @if ($validations->count() > 5)
-  <div class="mt-[30px] mx-auto">
+   {{-- @if ($validations->count() > 5) --}}
+  {{-- <div class="mt-[30px] mx-auto">
   <button id="load-more" class="w-[250px] px-5 bg-[#FF7366] shadow-xl font-semibold rounded-full py-3 text-[#fff] ">
     <span id="load-more-text">Lihat lebih banyak</span>  
     <span id="loading-indicator" class="hidden ml-2 animate-ping"> Memuat </span>
   </button>
-  </div>    
-  @endif 
+  </div>     --}}
+  {{-- @endif  --}}

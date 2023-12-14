@@ -34,7 +34,7 @@ class FrontEndController extends Controller
     
             if ($request->hasFile('screenshoot1')) {
                 $screenshoot1 = $request->file('screenshoot1');
-                $path1 = '/img/issue/'.date('Y').'/'.date('m');
+                $path1 = '/img/issue/'.date('Y').'/'.date('m').'/';
                 $imageName1 = 'issue-' . sha1($screenshoot1->getClientOriginalName()) . '.' . $screenshoot1->getClientOriginalExtension();
                 $screenshoot1->move(public_path($path1), $imageName1);
                 $issue->screenshoot1 = url($path1 . $imageName1);
@@ -95,17 +95,17 @@ class FrontEndController extends Controller
         
             return view('FE.load-more', compact('validations'));
         }
-    function content($slug)
+    public function content($slug)
     {
         $content = Content::where('slug',  $slug)->first();
         return view("FE.content", compact('content'));
     }
-    function donatur()
+    public function donatur()
     {
         $donaturs = Donatur::orderby('created_at','desc')->get();
         return view("FE.donatur",compact('donaturs'));
     }
-    function team()
+    public function team()
     {
         $teams = team::get();
         return view("FE.team",compact('teams'));

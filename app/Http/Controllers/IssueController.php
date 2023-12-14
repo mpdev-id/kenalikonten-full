@@ -13,7 +13,7 @@ class IssueController extends Controller
      */
     public function index()
     {
-        //
+        return view('BE.dashboard.konten.index');
     }
 
     /**

@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
-use App\Http\Requests\StoreTeamRequest;
-use App\Http\Requests\UpdateTeamRequest;
+use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
@@ -13,54 +12,51 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        $teams = Team::orderby('id','desc')->get();
+        return view('BE.dashboard.tim.index',compact('teams'));
+    }
+    public function delete($id){
+        $id = Team::find($id);
+        dd($id);
+        try {
+            $id->update('status','off');
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreTeamRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Team $team)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Team $team)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateTeamRequest $request, Team $team)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Team $team)
-    {
-        //
+    public function create(Request $request) {
+        
+        $request->validate([
+            'icon' => 'required|image|max:2048|mimes:jpeg,png,jpg',
+            'name' => 'required|max:50',
+        ]);
+    
+        try {
+            $team = new Team;
+    
+            if ($request->hasFile('icon')) {
+                $icon = $request->file('icon');
+                $path = '/img/teams/'.date('Y').'/'.date('m').'/';
+                $imageName = 'icon-team' . sha1($icon->getClientOriginalName()) . '.' . $icon->getClientOriginalExtension();
+                $icon->move(public_path($path), $imageName);
+                $team->icon =url( $path . $imageName);
+            }
+    
+            $team->name        = $request->name;
+            $team->status      = 'off';
+            // dd($team);
+            $team->save();
+    
+            return redirect()
+                ->back()
+                ->with('success', 'team berhasil di tambahkan');
+        } catch (\Throwable $th) {
+            \Log::error($th);
+    
+            return redirect()
+                ->back()
+                ->with('error', 'Error: ' . $th->getMessage());
+        }
     }
 }

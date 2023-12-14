@@ -16,7 +16,7 @@
           <ul>
             <h2 class="font-bold text-[18px] xl:pb-3">Eksplor</h2>
             <li class="pb-1 xl:pb-3">
-              <a class="font-normal {{ request()->is('tim-kami') ? ' text-[#FF7366] font-semibold' : 'text-[#333]' }}" href="{{route('index.team')}}">Tim Kami</a>
+              <a class="font-normal {{ request()->is('tim-kami') ? ' text-[#fff] font-bold' : 'text-[#333]' }}" href="{{route('index.team')}}">Tim Kami</a>
             </li>
             <li class="pb-1 xl:pb-3 transition-all ease-in-out duration-700">
               <a class="font-normal" href="#">TurunTangan Serang</a>
@@ -30,16 +30,16 @@
               <h2 class="font-bold text-[18px] xl:pb-3 transition-all ease-in-out duration-700">Media
                 & Kontak</h2>
             </li>
-            <li class=" pb-1 xl:pb-3 transition-all ease-in-out duration-500">
-              <a class="font-normal" href="#">kenalikonten@gmail.com</a>
+            <li class=" pb-1 xl:pb-3 hover:text-[#fff] transition-all ease-in-out duration-500">
+              <a class="font-normal" href="mailto:kenalikonten@gmail.com" >kenalikonten@gmail.com</a>
             </li>
-            <li class=" pb-1 xl:pb-3 transition-all ease-in-out duration-600">
+            <li class=" pb-1 xl:pb-3 hover:text-[#fff] transition-all ease-in-out duration-600">
               <a class="font-normal" href="#">Instagram</a>
             </li>
-            <li class=" pb-1 xl:pb-3 transition-all ease-in-out duration-700">
+            <li class=" pb-1 xl:pb-3 hover:text-[#fff] transition-all ease-in-out duration-700">
               <a class="font-normal" href="#">Twitter</a>
             </li>
-            <li class=" pb-1 xl:pb-3 transition-all ease-in-out duration-800">
+            <li class=" pb-1 xl:pb-3 hover:text-[#fff] transition-all ease-in-out duration-800">
               <a class="font-normal" href="#">Tiktok</a>
             </li>
           </ul>

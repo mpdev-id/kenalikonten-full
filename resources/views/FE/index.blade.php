@@ -37,7 +37,8 @@
   </div>
   <div
     class="font-bold text-xl mx-2 sm:text-3xl  text-center w-full pt-2 min-[1023px]:hidden transition-all ease-in-out duration-700">
-    Media Sosial Jadi <span class="text-[#FF7366] ">Sumber Hoaks</span><br> Terbesar Tahun {{ date('Y') }}
+    Media Sosial Jadi <span class="text-[#FF7366] ">Sumber Hoaks</span><br> Terbesar Tahun {{
+    date('Y') }}
     </span>
   </div>
 </section>
@@ -116,7 +117,7 @@
     <div
       class="sm:w-[936px] flex max-[1240px]:flex-col mt-5 mb-10 overscroll-none swiper-wrapper p-3 gap-y-2 transition-all ease-in-out duration-700">
       @forelse ($teams as $team)
-          
+
 
       <div
         class="max-[1279px]:min-w-full lg:w-[279px] h-[300px] rounded-2xl bg-[#FFF] shadow-xl sm:mr-4 flex flex-col gap-3 cursor-grab swiper-slide">
@@ -138,36 +139,40 @@
         </div>
         <div class="w-[245px] max-[1024px]:w-full mx-auto">
           <p class="text-center">
-            {{ strlen($team->information) > 45 ? substr($team->information, 0, 45) . '...' : $team->information }}
+            {{ strlen($team->information) > 45 ? substr($team->information, 0, 45) . '...' :
+            $team->information }}
           </p>
         </div>
         <div class="mx-auto">
-          <a href="{{ $team->link_join }}" target="_blank" class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
+          <a href="{{ $team->link_join }}" target="_blank"
+            class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
             Daftar
-            <img class="w-6" src="{{ asset('FE') }}/dist/images/ic-arrow-right.png" alt="Detail {{ $team->title }}">
+            <img class="w-6" src="{{ asset('FE') }}/dist/images/ic-arrow-right.png"
+              alt="Detail {{ $team->title }}">
           </a>
         </div>
+      </div>
+      @empty
+      <div
+        class="h-full flex outline-none placeholder-stone-300 text-base font-normal w-full max-w-full transition-all ease-in-out duration-700 bg-white-900 rounded">
+        <span class="mx-auto">
+          belum tersedia
+        </span>
+      </div>
+
+      @endforelse
     </div>
-    @empty
-    <div class="h-full flex outline-none placeholder-stone-300 text-base font-normal w-full max-w-full transition-all ease-in-out duration-700 bg-white-900 rounded">
-      <span class="mx-auto">
-       belum tersedia
-      </span>
-     </div>
-  
-    @endforelse
-  </div>
-  @if ($teams->count()>3)
-  <div class="mx-auto flex gap-x-6 pb-[55px] ">
-    <a class="prev max-[1280px]:hidden block">
-      <img class="w-8 " src="{{ asset('FE') }}/dist/images/ic-arrow-slide-left.png" alt="">
-    </a>
-    <a class="next max-[1280px]:hidden block">
-      <img class="w-8 " src="{{ asset('FE') }}/dist/images/ic-arrow-slide-right.png" alt="">
-    </a>
-  </div>
-  @endif 
-      
+    @if ($teams->count()>3)
+    <div class="mx-auto flex gap-x-6 pb-[55px] ">
+      <a class="prev max-[1280px]:hidden block">
+        <img class="w-8 " src="{{ asset('FE') }}/dist/images/ic-arrow-slide-left.png" alt="">
+      </a>
+      <a class="next max-[1280px]:hidden block">
+        <img class="w-8 " src="{{ asset('FE') }}/dist/images/ic-arrow-slide-right.png" alt="">
+      </a>
+    </div>
+    @endif
+
   </div>
 </section>
 <!-- contact us -->
@@ -327,6 +332,7 @@
       </form>
     </div>
     @endsection
+
     @push('javascript')
     <!-- modal -->
     <script>
@@ -351,28 +357,28 @@
           modal.classList.remove("opacity-0", "translate-y-4");
         }, 500);
       });
-      // Submit form (you can customize this part to handle form submission)
-      submitBtn.addEventListener("click", function () {
-        // Get form data
-        const formData1 = new FormData(document.getElementById("uploadForm1"));
-        const formData2 = new FormData(document.getElementById("uploadForm2"));
-        const linkOrSource = document.querySelector("input[type='text']").value;
-        const detailInfo = document.querySelector("textarea").value;
-        const email = document.querySelector("input[type='email']").value;
-        // Handle form data as needed (e.g., send it to the server)
-        console.log("Form Data 1:", formData1);
-        console.log("Form Data 2:", formData2);
-        console.log("Link or Source:", linkOrSource);
-        console.log("Detail Info:", detailInfo);
-        console.log("Email:", email);
-        // Close modal with fade animation (you may want to do this after successful form submission)
-        modal.classList.remove("opacity-100", "translate-y-0");
-        modal.classList.add("opacity-0", "translate-y-4");
-        setTimeout(() => {
-          modal.classList.add("hidden");
-          modal.classList.remove("opacity-0", "translate-y-4");
-        }, 300);
-      });
+      // // Submit form (you can customize this part to handle form submission)
+      // submitBtn.addEventListener("click", function () {
+      //   // Get form data
+      //   const formData1 = new FormData(document.getElementById("uploadForm1"));
+      //   const formData2 = new FormData(document.getElementById("uploadForm2"));
+      //   const linkOrSource = document.querySelector("input[type='text']").value;
+      //   const detailInfo = document.querySelector("textarea").value;
+      //   const email = document.querySelector("input[type='email']").value;
+      //   // Handle form data as needed (e.g., send it to the server)
+      //   console.log("Form Data 1:", formData1);
+      //   console.log("Form Data 2:", formData2);
+      //   console.log("Link or Source:", linkOrSource);
+      //   console.log("Detail Info:", detailInfo);
+      //   console.log("Email:", email);
+      //   // Close modal with fade animation (you may want to do this after successful form submission)
+      //   modal.classList.remove("opacity-100", "translate-y-0");
+      //   modal.classList.add("opacity-0", "translate-y-4");
+      //   setTimeout(() => {
+      //     modal.classList.add("hidden");
+      //     modal.classList.remove("opacity-0", "translate-y-4");
+      //   }, 300);
+      // });
     });
     </script>
     <!-- swiper -->

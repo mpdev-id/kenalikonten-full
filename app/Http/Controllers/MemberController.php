@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
+use App\Models\Team;
 
 class MemberController extends Controller
 {
@@ -13,7 +14,7 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**

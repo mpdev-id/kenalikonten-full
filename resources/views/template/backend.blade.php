@@ -74,10 +74,11 @@
 
         <!-- start content -->
         <section class="p-5 conten">
-            <div class="flex flex-col max-w-7xl content-body gap-4">
+            <div class="flex flex-col max-w-7xl content-body gap-4 mx-auto">
                 @yield('content')
 
             </div>
+            @yield('modal')
         </section>
         @include('BE.component.footer')
         @stack('javascript')

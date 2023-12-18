@@ -69,13 +69,13 @@ class FrontEndController extends Controller
     }
     function valid()
     {
-        $validations = Content::paginate(6); 
+        $validations = Content::where('public_status','visible')->paginate(6); 
         return view("FE.valid", compact('validations'));
     }
     public function loadMoreValidations(Request $request)
     {
         $page = $request->get('page', 1);
-        $validations = Content::paginate(3, ['*'], 'page', $page);
+        $validations = Content::where('public_status','visible')->paginate(3, ['*'], 'page', $page);
     
         return view('FE.load-more', compact('validations'));
     }  
@@ -88,16 +88,17 @@ class FrontEndController extends Controller
                 $validations = Content::orWhere('title', 'LIKE', '%' . $search . '%')
                     ->orWhere('status', 'LIKE', '%' . $search . '%')
                     ->orWhere('content', 'LIKE', '%' . $search . '%')
+                    ->orWhere('public_status','visible')
                     ->get();
             } else {
-                $validations = Content::paginate(6);
+                $validations = Content::where('public_status','visible')->paginate(6);
             }
         
             return view('FE.load-more', compact('validations'));
         }
     public function content($slug)
     {
-        $content = Content::where('slug',  $slug)->first();
+        $content = Content::orWhere('public_status','visible')->orWhere('slug',  $slug)->first();
         return view("FE.content", compact('content'));
     }
     public function donatur()

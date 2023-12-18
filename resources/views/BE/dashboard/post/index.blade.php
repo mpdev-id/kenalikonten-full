@@ -26,25 +26,13 @@
   <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
       <div class="overflow-hidden">
-        <table class="min-w-full text-left text-sm font-light ">
-          <thead class="border-b font-medium bg-emerald-500 bg-red-100 ">
-            <tr class="p-2">
+        <table class="min-w-full text-left text-sm font-light">
+          <thead class="border-b font-medium">
+            <tr>
               <th scope="col" class="px-1 py-4">No</th>
-              <div class="w-9 h-[60px] p-2 bg-red-100 justify-start items-center gap-0.5 inline-flex">
-                <div class="text-zinc-800 text-sm font-semibold font-['Poppins']">No</div>
-            </div>
-            <div class="w-[450px] h-[60px] p-2 bg-red-100 justify-start items-center gap-0.5 inline-flex">
-              <div class="text-zinc-800 text-sm font-semibold font-['Poppins']">Nama Jenis Tim</div>
-          </div>
-          <div class="w-[450px] h-[60px] p-2 bg-red-100 justify-start items-center gap-0.5 inline-flex">
-            <div class="text-zinc-800 text-sm font-semibold font-['Poppins']">Icon</div>
-        </div>
-        <div class="w-[124px] h-[60px] p-2 bg-red-100 justify-start items-center gap-0.5 inline-flex">
-          <div class="text-zinc-800 text-sm font-semibold font-['Poppins']">Action</div>
-      </div>
-              {{-- <th scope="col" class="px-6 py-4">Nama Jenis Tim</th>
+              <th scope="col" class="px-6 py-4">Nama Jenis Tim</th>
               <th scope="col" class="px-3 py-4">Icon</th>
-              <th scope="col" class="px-6 py-4">Action</th> --}}
+              <th scope="col" class="px-6 py-4">Action</th>
             </tr>
           </thead>
           <tbody>

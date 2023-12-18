@@ -1,12 +1,14 @@
 <?php
 
-
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\IssueController;
 use App\Http\Controllers\LokerController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\TeamController;
+use App\Models\Donatur;
 use Illuminate\Support\Facades\Route;
 
 
@@ -43,6 +45,12 @@ route::name('dashboard.')->prefix('dashboard')->group(function(){
   });
    route::name('loker-tim')->prefix('loker-tim')->group(function(){
     route::get('/',[LokerController::class,'index']);
+  });
+   route::name('donatur')->prefix('donatur')->group(function(){
+    route::get('/',[DonaturController::class,'index']);
+  });
+   route::name('post')->prefix('post')->group(function(){
+    route::get('/',[ContentController::class,'index']);
   });
 
 });

@@ -35,10 +35,11 @@ route::name('dashboard.')->prefix('dashboard')->group(function(){
     route::get('/',[IssueController::class,'index']);
   });
    route::name('jenis-tim.')->prefix('jenis-tim')->group(function(){
-     route::post('/',[TeamController::class,'create'])->name('create');
-     Route::delete('/{id}', 'TeamController@destroy')->name('dashboard.jenis-tim.delete');
+    route::post('/delete/{id}', [TeamController::class,'delete'])->name('delete');
+     route::get('/{id}', [TeamController::class,'edit'])->name('edit');
      route::get('/',[TeamController::class,'index'])->name('index');
-     route::get('/{$id}/delete',[TeamController::class,'delete'])->name('delete');
+     route::post('/',[TeamController::class,'create'])->name('create');
+    //  route::get('/{$id}/delete',[TeamController::class,'delete'])->name('delete');
   });
    route::name('anggota-tim')->prefix('anggota-tim')->group(function(){
     route::get('/',[MemberController::class,'index']);

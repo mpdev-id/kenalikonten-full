@@ -94,7 +94,7 @@
 
      @if(request()->is('content/*'))
        <!-- kembali -->
-       <div class="max-w-full h-12 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-32 bg-zinc-100  text-red-400 flex items-center">
+       <div class="max-w-full h-12 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-32 bg-zinc-100 text-red-400 flex items-center bg-[#efefef]">
         <div class="flex w-[1024px] items-center mx-auto ">
          <a href="{{ route('index.valid') }}" class="flex flex-row items-center">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -31,7 +31,7 @@
        <th class="w-[450px] p-2 ">Tim</th>
        <th class="w-[450px] p-2">Quote</th>
        <th class="w-[450px] p-2">Foto</th>
-       <th class="w-[124px] p-2 text-center">Action</th>
+       <th class="w-[124px] p-2 text-center">Action </th>
       </tr>
      </thead>
      <tbody>

@@ -37,11 +37,14 @@ route::name('dashboard.')->prefix('dashboard')->group(function(){
      route::get('/{id}', [TeamController::class,'edit'])->name('edit');
      route::get('/',[TeamController::class,'index'])->name('index');
      route::post('/',[TeamController::class,'create'])->name('create');
-    //  route::get('/{$id}/delete',[TeamController::class,'delete'])->name('delete');
-  });
+     //  route::get('/{$id}/delete',[TeamController::class,'delete'])->name('delete');
+    });
 
-   route::name('anggota-tim')->prefix('anggota-tim')->group(function(){
-    route::get('/',[MemberController::class,'index']);
+    route::name('anggota-tim.')->prefix('anggota-tim')->group(function(){
+      route::delete('/delete/{id}', [MemberController::class,'delete'])->name('delete');
+      route::get('/',[MemberController::class,'index'])->name('index');;
+      route::get('/{id}', [MemberController::class,'edit'])->name('edit');
+      route::post('/',[MemberController::class,'create'])->name('create');
   });
 
    route::name('loker-tim')->prefix('loker-tim')->group(function(){

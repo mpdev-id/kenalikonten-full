@@ -42,7 +42,7 @@ route::name('dashboard.')->prefix('dashboard')->group(function(){
 
     route::name('anggota-tim.')->prefix('anggota-tim')->group(function(){
       route::delete('/delete/{id}', [MemberController::class,'delete'])->name('delete');
-      route::get('/',[MemberController::class,'index'])->name('index');;
+      route::get('/',[MemberController::class,'index'])->name('index');
       route::get('/{id}', [MemberController::class,'edit'])->name('edit');
       route::post('/',[MemberController::class,'create'])->name('create');
     });
@@ -50,16 +50,20 @@ route::name('dashboard.')->prefix('dashboard')->group(function(){
     route::name('loker-tim.')->prefix('loker-tim')->group(function(){
       // route::get('/',[LokerController::class,'index'])->name('index');
       route::delete('/delete/{id}', [LokerController::class,'delete'])->name('delete');
-      route::get('/',[LokerController::class,'index'])->name('index');;
+      route::get('/',[LokerController::class,'index'])->name('index');
       route::get('/{id}', [LokerController::class,'edit'])->name('edit');
       route::post('/',[LokerController::class,'create'])->name('create');
+    });
+    
+    route::name('donatur.')->prefix('donatur')->group(function(){
+      // route::get('/',[DonaturController::class,'index']);
+      route::delete('/delete/{id}', [DonaturController::class,'delete'])->name('delete');
+      route::get('/',[DonaturController::class,'index'])->name('index');
+      route::get('/{id}', [DonaturController::class,'edit'])->name('edit');
+      route::post('/',[DonaturController::class,'create'])->name('create');
   });
 
-   route::name('donatur')->prefix('donatur')->group(function(){
-    route::get('/',[DonaturController::class,'index']);
-  });
-
-   route::name('post')->prefix('post')->group(function(){
+   route::name('post.')->prefix('post')->group(function(){
     route::get('/',[ContentController::class,'index']);
   });
 

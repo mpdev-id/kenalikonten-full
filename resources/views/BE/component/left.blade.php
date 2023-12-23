@@ -25,7 +25,7 @@
         </div>
         <div class="self-stretch h-9 px-3 {{ request()->is('*/donatur') ? '   border-r-2 border-red-400' : '' }} justify-start items-center gap-2 inline-flex  hover:border-r-2 hover:border-red-400 ">
             <div class="w-6 h-6 relative"></div>
-            <a href="{{ route('dashboard.donatur') }}" class="{{ request()->is('*/donatur') ? '  text-red-400 text-base font-normal ' : 'text-neutral-400 text-base font-normal' }} hover:text-red-400">Donatur</a>
+            <a href="{{ route('dashboard.donatur.index') }}" class="{{ request()->is('*/donatur') ? '  text-red-400 text-base font-normal ' : 'text-neutral-400 text-base font-normal' }} hover:text-red-400">Donatur</a>
         </div>
         <div class="self-stretch h-9 px-3 {{ request()->is('*/post') ? '   border-r-2 border-red-400' : '' }} justify-start items-center gap-2 inline-flex  hover:border-r-2 hover:border-red-400 ">
             <div class="w-6 h-6 relative"></div>

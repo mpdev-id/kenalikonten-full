@@ -19,7 +19,7 @@
           fill="white" />
       </svg>
     </div>
-    <div class="text-white text-base font-semibold font-['Poppins']">Tambah Jenis Tim</div>
+    <div class="text-white text-base font-semibold font-['Poppins']">Tambah donatur</div>
   </button>
 
   {{-- tambah data --}}
@@ -30,13 +30,15 @@
           <thead class="border-b font-medium">
             <tr>
               <th scope="col" class="px-1 py-4">No</th>
-              <th scope="col" class="px-6 py-4">Nama Jenis Tim</th>
-              <th scope="col" class="px-3 py-4">Icon</th>
+              <th scope="col" class="px-6 py-4">Nama Donatur</th>
+              <th scope="col" class="px-6 py-4">Nominal Donasi</th>
+              <th scope="col" class="px-6 py-4">Tanggal Donasi</th>
+              <th scope="col" class="px-3 py-4">Icon/logo</th>
               <th scope="col" class="px-6 py-4">Action</th>
             </tr>
           </thead>
           <tbody>
-            @forelse ($teams as $item)
+            @forelse ($donaturs as $item)
 
             <tr class="border-b boder-2">
               <td class="whitespace-nowrap px-1 py-4 font-medium">{{ $loop->iteration }}</td>
@@ -44,9 +46,17 @@
                 <div class="w-[434px] text-zinc-800 text-sm font-normal font-['Poppins']">{{
                   $item->name }}
               </td>
+              <td class="whitespace-nowrap py-4">
+                <div class="w-[434px] text-zinc-800 text-sm font-normal font-['Poppins']">{{
+                  $item->donation }}
+              </td>
+              <td class="whitespace-nowrap py-4">
+                <div class="w-[434px] text-zinc-800 text-sm font-normal font-['Poppins']">{{
+                  $item->donation_date }}
+              </td>
               <td class="p-2  "><img class="w-8 shadow" src="{{ asset($item->icon) }}"></td>
               <td class="whitespace-nowrap px-6 py-4 flex">
-                <a id="tambahTeam" href="#">
+                <a id="tambahDonation" href="#">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -54,8 +64,8 @@
                       fill="#FF7366" />
                   </svg>
                 </a>
-                {{-- {{ route('dashboard.jenis-tim.delete',$item->id) }} --}}
-                <form action="{{ route('dashboard.jenis-tim.delete', $item->id) }}" method="POST">
+                {{-- {{ route('dashboard.donation.delete',$item->id) }} --}}
+                <form action="{{ route('dashboard.donation.delete', $item->id) }}" method="POST">
                   @csrf
                   @method('DELETE')
                   <button type="submit">
@@ -100,16 +110,34 @@
      </button>
    </div>
    <div class="text-center mb-7">
-     <span class="text-xl sm:text-3xl font-semibold my-6 text-[#333] text-center">Tambah Jenis Tim</span>
+     <span class="text-xl sm:text-3xl font-semibold my-6 text-[#333] text-center">Tambah Donation</span>
    </div>
-   <form action="{{ route('dashboard.jenis-tim.create') }}" method="post" enctype="multipart/form-data">
+   <form action="{{ route('dashboard.donation.create') }}" method="post" enctype="multipart/form-data">
      @csrf
      <div class="my-4">
-      <span class="text-[#000] mb-2">Nama Tim<span class="text-[#FF1F39]">*</span></span>
-      <input name="name" type="text" placeholder="Masukan Nama Tim"
+      <span class="text-[#000] mb-2">Nama Donatur<span class="text-[#FF1F39]">*</span></span>
+      <input name="name" type="text" placeholder="Masukan Nama Donatur"
         class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
         value="{{ old('name') }}">
       @error('name')
+       <span class="text-red-500">*{{ $message }}</span>
+      @enderror
+    </div>
+     <div class="my-4">
+      <span class="text-[#000] mb-2">Nominal Donasi<span class="text-[#FF1F39]">*</span></span>
+      <input name="donation" type="text" placeholder="Masukan Nominal Donasi"
+        class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
+        value="{{ old('donation') }}">
+      @error('donation')
+       <span class="text-red-500">*{{ $message }}</span>
+      @enderror
+    </div>
+     <div class="my-4">
+      <span class="text-[#000] mb-2">Tanggal Donasi<span class="text-[#FF1F39]">*</span></span>
+      <input name="donation_date" type="text" placeholder="Masukan Tanggal Donasi"
+        class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
+        value="{{ old('donation_date') }}">
+      @error('donation_date')
        <span class="text-red-500">*{{ $message }}</span>
       @enderror
     </div>

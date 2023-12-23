@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Loker;
 use App\Http\Requests\StoreLokerRequest;
 use App\Http\Requests\UpdateLokerRequest;
+use App\Models\Team;
 
 class LokerController extends Controller
 {
@@ -13,7 +14,10 @@ class LokerController extends Controller
      */
     public function index()
     {
-        //
+        $teams = Team::where('status','on')->orderby('id','desc')->get();
+        // return view('BE.dashboard.tim.index',compact('teams'));
+    // }
+        return view('BE.dashboard.anggota.loker',compact('teams'));
     }
 
     /**

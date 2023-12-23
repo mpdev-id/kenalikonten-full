@@ -11,7 +11,7 @@
 <div class="flex flex-col">
   {{-- tambah data --}}
   <button id="modalKirimKonten" href="#"
-    class="hover:shadow-lg w-[218px] h-12 px-5 py-3 bg-red-400 rounded-[50px] justify-center items-center gap-1 inline-flex">
+    class="hover:shadow-lg w-[248px] h-12 px-5 py-3 bg-red-400 rounded-[50px] justify-center items-center gap-1 inline-flex">
     <div class="w-6 h-6 relative"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <path
@@ -39,23 +39,23 @@
               </tr>
           </thead>
           <tbody>
-              @forelse ($teams as $item)
+              @forelse ($lokers as $loker)
               <tr class="border-b border-0">
                   <td class="whitespace-nowrap px-1 py-4 font-medium">{{ $loop->iteration }}</td>
                   <td class="whitespace-nowrap py-4">
-                      <span class="text-zinc-800 text-sm font-normal font-Poppins">{{ $item->name }}</span>
+                      <span class="text-zinc-800 text-sm font-normal font-Poppins">{{ $loker->name }}</span>
                   </td>
                   <td class="whitespace-nowrap py-4 text-wrap">
-                      <span class="text-zinc-800 text-sm font-normal font-Poppins">{{ $item->information }}</span>
+                      <span class="text-zinc-800 text-sm font-normal font-Poppins">{{ $loker->information }}</span>
                   </td>
                   <td class="whitespace-nowrap py-4">
-                      <span class="text-zinc-800 text-sm font-normal font-Poppins">{{ $item->link_join }}</span>
+                      <span class="text-zinc-800 text-sm font-normal font-Poppins">{{ $loker->link_join }}</span>
                   </td>
                   <td class="p-2">
-                      <img class="w-8 shadow" src="{{ asset($item->icon) }}" alt="{{ $item->name }} Icon Tim">
+                      <img class="w-8 shadow" src="{{ asset($loker->icon) }}" alt="{{ $loker->name }} Icon Tim">
                   </td>
                   <td class="whitespace-nowrap px-6 py-4 flex justify-center">
-                      <button onclick="editModal('{{ $item->id }}')">
+                      <button onclick="editModal('{{ $loker->id }}')">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -63,10 +63,10 @@
                           fill="#FF7366" />
                       </svg>
                       </button>
-                      <form method="post" action="{{ route('dashboard.jenis-tim.delete', $item->id) }}">
+                      <form method="post" action="{{ route('dashboard.loker-tim.delete', $loker->id) }}">
                           @csrf
-                          @method('POST')
-                          <input type="hidden" value="{{ $item->id }}" name="id" hidden>
+                          @method('DELETE')
+                          <input type="hidden" value="{{ $loker->id }}" name="id" hidden>
                           <button type="submit">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -109,55 +109,68 @@
       <span class="text-xl sm:text-3xl font-semibold my-6 text-[#333] text-center" id="title">Tambah
         Loker Tim</span>
     </div>
-    <form action="{{ route('dashboard.jenis-tim.create') }}" method="post"
+    <form action="{{ route('dashboard.loker-tim.create') }}" method="post"
       enctype="multipart/form-data">
       @csrf
       <div class="my-4">
-        <label for="team_id" class="text-[#000] mb-2">Tim<span class="text-[#FF1F39]">*</span></label>
-        <select name="team_id" id="team_id" class="w-full rounded-lg bg-white py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-base" required>
-            <option value="" disabled selected>Pilih time</option> <!-- Placeholder tidak memerlukan value -->
-            @foreach ($teams` as $team)
-                <option value="{{ $team->id }}" @if(isset($selectedTeamId) && $selectedTeamId == $team->id) selected @endif>
+        <label for="name" class="text-[#000] mb-2">Tim<span class="text-[#FF1F39]">*</span></label>
+        <select name="name" id="name" class="w-full rounded-lg bg-white py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-base" required>
+            <option value="" disabled selected>Pilih tim</option> <!-- Placeholder tidak memerlukan value -->
+            @forelse ($teams as $team)
+                <option value="{{ $team->name }}" @if(isset($selectedTeamId) && $selectedTeamId == $team->id) selected @endif>
                     {{ $team->name }}
                 </option>
-            @endforeach
+              @empty
+              <option value="" disabled selected>Semua tim sedang membuka lowongan
+              </option>
+            @endforelse
         </select>
-        @error('team_id')
-        <span class="text-red-500">*{{ $message }}</span>
-        @enderror
-      <div class="my-4">
-        <span class="text-[#000] mb-2">Nama Tim<span class="text-[#FF1F39]">*</span></span>
-        <input name="id" type="hidden"
-          class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
-          hidden>
-        <input name="name" type="text" placeholder="Masukan Nama Tim"
-          class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
-          value="{{ old('name') }}">
         @error('name')
         <span class="text-red-500">*{{ $message }}</span>
         @enderror
-      </div>
+      
       <div class="my-4">
+        <input name="id" type="hidden"
+          class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
+          hidden>
+        <span class="text-[#000] mb-2">Nama Tim<span class="text-[#FF1F39]">*</span></span>
+        <input name="title" type="text" placeholder="Masukan Nama Tim"
+          class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
+          value="{{ old('title') }}">
+        @error('title')
+        <span class="text-red-500">*{{ $message }}</span>
+        @enderror
+      </div>
+    
+      <div class="my-4">
+        <span class="text-[#000] mb-2">Deskripsi<span class="text-[#FF1F39]">*</span></span>
+        <input name="information" type="text" placeholder="Masukan Deskripsi"
+          class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
+          value="{{ old('information') }}">
+        @error('information')
+        <span class="text-red-500">*{{ $message }}</span>
+        @enderror
+      </div>
+      
+      <div class="my-4">
+        <span class="text-[#000] mb-2">Link Pendaftaran<span class="text-[#FF1F39]">*</span></span>
+        <input name="link_join" type="url" placeholder="Masukan Link Join"
+          class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
+          value="{{ old('link_join') }}">
+        @error('link_join')
+        <span class="text-red-500">*{{ $message }}</span>
+        @enderror
+      </div>
+
+      {{-- <div class="my-4">
         <div class="nftmax-ptabs__sauthor-img nftmax-ptabs__pthumb" id="icons">
           <label for="icon">
             <img class="rounded w-50" loading="lazy" src="" alt="Foto Profil" id="preview_icon"
               hidden>
-            {{-- <img class="rounded" src="" alt="Foto Profil" id="preview_icon2"> --}}
-            <span class="nftmax-wc__form-main">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M16.5147 11.5C17.7284 12.7137 18.9234 13.9087 20.1296 15.115C19.9798 15.2611 19.8187 15.4109 19.6651 15.5683C17.4699 17.7635 15.271 19.9587 13.0758 22.1539C12.9334 22.2962 12.7948 22.4386 12.6524 22.5735C12.6187 22.6034 12.5663 22.6296 12.5213 22.6296C11.3788 22.6334 10.2362 22.6297 9.09365 22.6334C9.01498 22.6334 9 22.6034 9 22.536C9 21.4009 9 20.2621 9.00375 19.1271C9.00375 19.0746 9.02997 19.0109 9.06368 18.9772C10.4123 17.6249 11.7609 16.2763 13.1095 14.9277C14.2295 13.8076 15.3459 12.6913 16.466 11.5712C16.4884 11.5487 16.4997 11.5187 16.5147 11.5Z"
-                  fill="white">
-                </path>
-                <path
-                  d="M20.9499 14.2904C19.7436 13.0842 18.5449 11.8854 17.3499 10.6904C17.5634 10.4694 17.7844 10.2446 18.0054 10.0199C18.2639 9.76139 18.5261 9.50291 18.7884 9.24443C19.118 8.91852 19.5713 8.91852 19.8972 9.24443C20.7251 10.0611 21.5492 10.8815 22.3771 11.6981C22.6993 12.0165 22.7105 12.4698 22.3996 12.792C21.9238 13.2865 21.4443 13.7772 20.9686 14.2717C20.9648 14.2792 20.9536 14.2867 20.9499 14.2904Z"
-                  fill="white">
-                </path>
-              </svg></span></label>
+            <span class="nftmax-wc__form-main"></span></label>
           <input value="{{ old('icon') }}" id="icon" type="file" name="icon">
         </div>
-      </div>
+      </div> --}}
       {{-- <div class="my-4">
         <img id="gambarTim" src="" alt="Gambar Tim">
         <span class="text-[#000] mb-2">icon<span class="text-[#FF1F39]">*</span></span>
@@ -183,11 +196,11 @@
   <script>
     // preview image uplaod
       document.addEventListener("DOMContentLoaded", function() {
-        const bestMomentInput = document.getElementById('icon');
-        const bestMomentPreview = document.getElementById('preview_icon');
-        bestMomentInput.addEventListener('change', (event) => {
-            handleImageUpload(event, 'preview_icon2');
-        });
+        // const bestMomentInput = document.getElementById('icon');
+        // const bestMomentPreview = document.getElementById('preview_icon');
+        // bestMomentInput.addEventListener('change', (event) => {
+        //     handleImageUpload(event, 'preview_icon2');
+        // });
         const modal = document.getElementById("modalKirim");
         const modalKirimKonten = document.getElementById("modalKirimKonten");
         const closeModalBtn = document.getElementById("closeModalBtn");
@@ -218,15 +231,24 @@ function toggleModal(isOpen) {
 }
 function clear(){
   $('#modalKirim input[name="id"]').val("");
-  $('#modalKirim input[name="name"]').val("");
-  $('#modalKirim input[name="icon"]').val("");
+  $('#modalKirim select[name="name"]').val("");
+  $('#modalKirim input[name="title"]').val("");
+  $('#modalKirim input[name="information"]').val("");
+  $('#modalKirim input[name="link_join"]').val("");
+    // Loop through each option and disable if its value matches teamData.name
+    $('#modalKirim select[name="name"] option').each(function() {
+    if ($(this).val() === teamData.name) {
+      $(this).prop('hidden', true);
+    }
+  });
+  // $('#modalKirim input[name="icon"]').val("");
 }
 function editModal(teamId) {
   $('#title').text("Edit Loker Tim");
   toggleModal(true);
   $.ajax({
     type: "GET",
-    url: "{{ route('dashboard.jenis-tim.edit', '') }}/" + teamId,
+    url: "{{ route('dashboard.loker-tim.edit', '') }}/" + teamId,
     dataType: "json",
     success: function(teamData) {
       // console.info(teamData);
@@ -242,17 +264,23 @@ function fillForm(teamData) {
   const modal = document.getElementById("modalKirim");
   // Menghapus kelas 'hidden' dan menambahkan kelas untuk menampilkan modal
   $(modal).removeClass("hidden").addClass("opacity-100 translate-y-0");
-  // Mengisi nilai formulir dengan data tim
+  
+  // Set value for select with name "name"
+  $('#modalKirim select[name="name"]').val(teamData.name);
+  // Loop through each option and disable if its value matches teamData.name
+  $('#modalKirim select[name="name"] option').each(function() {
+    if ($(this).val() === teamData.name) {
+      $(this).prop('hidden', true);
+    }
+  });
+  
+  
   $('#modalKirim input[name="id"]').val(teamData.id);
-  $('#modalKirim input[name="name"]').val(teamData.name);
-  // $('#modalKirim input[name="icon"]').val(teamData.icon);
-  // console.log("Data tim:", teamData);
-  // Mengambil referensi elemen gambar tim
-  const gambarTim = document.getElementById("preview_icon");
-  // Menetapkan sumber gambar sesuai dengan URL yang diterima dari data tim
-  gambarTim.src = teamData.icon;
-  gambarTim.removeAttribute("hidden");
-  // console.log(teamData);
+  $('#modalKirim input[name="title"]').val(teamData.title);
+  $('#modalKirim input[name="information"]').val(teamData.information);
+  $('#modalKirim input[name="link_join"]').val(teamData.link_join);
 }
+
+
   </script>
   @endpush

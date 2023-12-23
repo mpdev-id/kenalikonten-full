@@ -13,7 +13,7 @@ class FrontEndController extends Controller
 {
     function index()
     {
-        $teams = Team::where('status','on')->get();
+        $teams = Team::where('status','on')->where('loker_status','on')->get();
 
         return view("FE.index", [
             'teams' => $teams,

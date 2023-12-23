@@ -24,15 +24,6 @@ Route::name('index.')->middleware('guest')->prefix('/')->group(function() {
  route::get('/tim-kami',[FrontEndController::class,'team'])->name('team');
 });
 
-Route::get('reboot',function(){
-  \Artisan::call('view:clear');
-  \Artisan::call('route:clear');
-  \Artisan::call('config:clear');
-  \Artisan::call('cache:clear');
-  \Artisan::call('key:generate');
-  \Artisan::call('migrate');
-});
-
 route::name('dashboard.')->prefix('dashboard')->group(function(){
 
    route::get('/',[DashboardController::class,'index'])->name('home');
@@ -54,10 +45,14 @@ route::name('dashboard.')->prefix('dashboard')->group(function(){
       route::get('/',[MemberController::class,'index'])->name('index');;
       route::get('/{id}', [MemberController::class,'edit'])->name('edit');
       route::post('/',[MemberController::class,'create'])->name('create');
-  });
-
-   route::name('loker-tim')->prefix('loker-tim')->group(function(){
-    route::get('/',[LokerController::class,'index']);
+    });
+    
+    route::name('loker-tim.')->prefix('loker-tim')->group(function(){
+      // route::get('/',[LokerController::class,'index'])->name('index');
+      route::delete('/delete/{id}', [LokerController::class,'delete'])->name('delete');
+      route::get('/',[LokerController::class,'index'])->name('index');;
+      route::get('/{id}', [LokerController::class,'edit'])->name('edit');
+      route::post('/',[LokerController::class,'create'])->name('create');
   });
 
    route::name('donatur')->prefix('donatur')->group(function(){

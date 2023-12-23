@@ -6,6 +6,7 @@ use App\Models\Loker;
 use App\Http\Requests\StoreLokerRequest;
 use App\Http\Requests\UpdateLokerRequest;
 use App\Models\Team;
+use Illuminate\Http\Request;
 
 class LokerController extends Controller
 {
@@ -14,57 +15,76 @@ class LokerController extends Controller
      */
     public function index()
     {
-        $teams = Team::where('status','on')->orderby('id','desc')->get();
+         $teams  = Team::where('status','on')->orderby('name','asc')->get();
+         $lokers = Team::where('loker_status','on')->orderby('updated_at','desc')->get();
         // return view('BE.dashboard.tim.index',compact('teams'));
     // }
-        return view('BE.dashboard.anggota.loker',compact('teams'));
+        return view('BE.dashboard.anggota.loker',compact('lokers','teams'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    // show modal
+    public function edit($id){
+        $id = Team::find($id);
+      try {
+            return response()->json($id);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreLokerRequest $request)
-    {
-        //
+    // create normal
+    public function create(Request $request) {
+        
+        $request->validate([
+            // 'icon' => 'image|max:2048|mimes:jpeg,png,jpg',
+            'name'  => 'required|max:50',
+            'title' => 'required|max:50',
+            'link_join' => 'required|max:550',
+            'information' => 'required|max:550',
+        ]);
+    
+        try {
+            $team = Team::firstOrNew(['name'=>$request->name]);
+            if ($request->hasFile('icon')) {
+                $icon = $request->file('icon');
+                $path = '/img/teams/' . date('Y') . '/' . date('m') . '/';
+                $imageName = 'icon-team-' . sha1($icon->getClientOriginalName()) . '.' . $icon->getClientOriginalExtension();
+                $icon->move(public_path($path), $imageName);
+                $team->icon = url($path . $imageName);
+            }
+            // $team->name  = $request->name;
+            $team->title = $request->title;
+            $team->link_join = $request->link_join;
+            $team->information = $request->information;
+            $team->loker_status =  'on';
+            $team->save();
+
+            $this->delete($request->id);
+
+            return redirect()
+                ->back()
+                ->with('success', 'Loker Tim berhasil ditambahkan');
+
+        } catch (\Throwable $th) {
+            \Log::error($th);
+    
+            return redirect()
+                ->back()
+                ->with('error', 'Error: ' . $th->getMessage());
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Loker $loker)
-    {
-        //
+    
+    public function delete($id){
+        $tim = Team::find($id);
+        // dump($tim);
+        if ($tim) {
+            $tim->update(['loker_status' => 'off']);
+            return redirect()->back();
+        } else {
+            // Handle jika ID tidak ditemukan, misalnya dengan menampilkan pesan kesalahan
+            return redirect()->back()->with('error', 'Tim tidak ditemukan.');
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Loker $loker)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateLokerRequest $request, Loker $loker)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Loker $loker)
-    {
-        //
-    }
 }

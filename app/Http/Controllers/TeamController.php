@@ -12,7 +12,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $teams = Team::where('status','on')->where('loker_status','off')->orderby('id','desc')->get();
+        $teams = Team::where('status','on')->orderby('id','desc')->get();
         return view('BE.dashboard.tim.index',compact('teams'));
     }
     // show modal
@@ -74,6 +74,7 @@ class TeamController extends Controller
             }
             $team->name = $request->name;
             $team->status = $team->status ?? 'on';
+            $team->status_loker = $team->loker ?? 'off';
             $team->save();
 
             return redirect()

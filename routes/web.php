@@ -56,15 +56,19 @@ route::name('dashboard.')->prefix('dashboard')->group(function(){
     });
     
     route::name('donatur.')->prefix('donatur')->group(function(){
-      // route::get('/',[DonaturController::class,'index']);
       route::delete('/delete/{id}', [DonaturController::class,'delete'])->name('delete');
       route::get('/',[DonaturController::class,'index'])->name('index');
       route::get('/{id}', [DonaturController::class,'edit'])->name('edit');
       route::post('/',[DonaturController::class,'create'])->name('create');
-  });
-
-   route::name('post.')->prefix('post')->group(function(){
-    route::get('/',[ContentController::class,'index']);
+    });
+    
+    route::name('post.')->prefix('konten-post')->group(function(){
+      route::get('/',[ContentController::class,'index'])->name('index');
+      route::delete('/delete/{id}', [ContentController::class,'delete'])->name('delete');
+      route::post('/status/{id}', [ContentController::class,'status'])->name('status');
+      // route::get('/',[ContentController::class,'index'])->name('index');
+      route::get('/{id}', [ContentController::class,'edit'])->name('edit');
+      route::post('/',[ContentController::class,'create'])->name('create');
   });
 
 });

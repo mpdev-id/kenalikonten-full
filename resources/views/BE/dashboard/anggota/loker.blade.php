@@ -32,7 +32,7 @@
               <tr class="p-2 ">
                   <th scope="col" class="w-[30px] px-1 py-4">No</th>
                   <th class="w-[450px] p-2 ">Nama Loker Tim</th>
-                  <th class="w-[150px] p-2 bg-red-300">Deskripsi</th>
+                  <th class="w-[150px] p-2 ">Deskripsi</th>
                   <th class="w-[350px] p-2">Link Pendaftaran</th>
                   <th class="w-[450px] p-2">Icon</th>
                   <th class="w-[124px] p-2 text-center">Action</th>

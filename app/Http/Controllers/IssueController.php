@@ -13,7 +13,12 @@ class IssueController extends Controller
      */
     public function index()
     {
-        return view('BE.dashboard.konten.index');
+        $data = [
+            'status' => ['validated','not_validate','checking'],
+            'semua' => Issue::get()
+
+        ];
+        return view('BE.dashboard.konten.index',compact('data'));
     }
 
     /**

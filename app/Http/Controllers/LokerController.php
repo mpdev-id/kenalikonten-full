@@ -13,9 +13,9 @@ class LokerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-         $teams  = Team::where('status','on')->orderby('name','asc')->get();
+         $teams  = Team::where('status','on')->orWhere('loker_status','off')->orderby('name','asc')->get();
          $lokers = Team::where('loker_status','on')->orderby('updated_at','desc')->get();
         // return view('BE.dashboard.tim.index',compact('teams'));
     // }
@@ -31,9 +31,13 @@ class LokerController extends Controller
             throw $th;
         }
     }
-
+    
     // create normal
     public function create(Request $request) {
+        
+        if($request->name){
+            $this->delete($request->id);
+        };
         
         $request->validate([
             // 'icon' => 'image|max:2048|mimes:jpeg,png,jpg',
@@ -56,10 +60,9 @@ class LokerController extends Controller
             $team->title = $request->title;
             $team->link_join = $request->link_join;
             $team->information = $request->information;
-            $team->loker_status =  'on';
+            $team->loker_status = 'on';
             $team->save();
 
-            $this->delete($request->id);
 
             return redirect()
                 ->back()

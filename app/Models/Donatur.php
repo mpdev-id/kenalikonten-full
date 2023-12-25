@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Donatur extends Model
 {
     use HasFactory;
-    protected $guatded = [''];
+    protected $guarded = [''];
 }

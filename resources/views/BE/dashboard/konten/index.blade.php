@@ -11,11 +11,11 @@
 <div class="flex flex-col">
  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
   <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-    <div class="w-[1260px] h-[660px] overflow-auto">
+    <div class="w-[1280px] h-[600px] overflow-auto">
 
 
-    <table class="min-w-[1280px] text-left text-sm font-light">
-     <thead class="border-b font-medium bg-emerald-500 bg-red-100 ">
+    <table class="min-w-[1400px] text-left text-sm font-light">
+     <thead class=" top-0 border-b font-medium bg-emerald-500 bg-red-100 sticky z-[100]">
       <tr class="p-2 ">
        <th scope="col" class="w-[30px] px-1">No</th>
        <th class="w-[180px] p-2 ">Status</th>
@@ -24,7 +24,7 @@
        <th class="w-[230px] p-2 ">Link Konten </th>
        <th class="w-[230px] p-2 ">Detail info </th>
        <th class="w-[230px] p-2 ">Email </th>
-       <th class="w-[150px] p-2 sticky right-0  z-10">Tanggal </th>
+       <th class="w-[150px] p-2 sticky right-20  z-10 ">Tanggal </th>
        <th class="w-[100px] p-2 sticky right-0  z-10">Action </th>
       </tr>
      </thead>
@@ -77,12 +77,12 @@
         <span class="text-zinc-800 text-sm font-normal font-Poppins text-wrap">{{ $item->email }}</span>
        </td>
        {{-- tanggal --}}
-        <td class="w-[150px] p-2 sticky right-0  z-10">
+        <td class="w-[150px] p-2 sticky right-20  z-10 bg-neutral-100 ">
             <span class="text-zinc-800 text-sm font-normal font-Poppins">{{ $item->created_at->format('d-M-Y') }}</span>
         </td>
 
         {{-- action --}}
-        <td class="w-[100px] p-2 px-6 flex justify-center sticky right-0  z-10">
+        <td class="w-[100px] p-2 px-6 flex justify-center sticky right-0  z-10 bg-neutral-100 ">
 
         <button onclick="editModal('{{ $item->id }}')">
          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

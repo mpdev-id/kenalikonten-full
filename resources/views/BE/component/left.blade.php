@@ -9,7 +9,7 @@
         </div>
         <div class="self-stretch h-9 px-3 {{ request()->is('konten-masuk') ? 'border-r-2 border-red-400' : '' }} justify-start items-center gap-2 inline-flex  hover:border-r-2 hover:border-red-400 ">
             <div class="w-6 h-6 relative"></div>
-            <a href="{{ route('dashboard.konten-masuk') }}" class="{{ request()->is('*/konten-masuk') ? '  text-red-400 text-base font-normal ' : 'text-neutral-400 text-base font-normal' }} hover:text-red-400">Konten Masuk</a>
+            <a href="{{ route('dashboard.konten-masuk.index') }}" class="{{ request()->is('*/konten-masuk') ? '  text-red-400 text-base font-normal ' : 'text-neutral-400 text-base font-normal' }} hover:text-red-400">Konten Masuk</a>
         </div>
         <div class="self-stretch h-9 px-3 {{ request()->is('*/jenis-tim') ? 'border-r-2 border-red-400' : '' }} justify-start items-center gap-2 inline-flex  hover:border-r-2 hover:border-red-400 ">
             <div class="w-6 h-6 relative"></div>

@@ -11,7 +11,7 @@
 <div class="flex flex-col">
  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
   <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-    <div class="w-[1280px] max-h-[600px] overflow-auto">
+    <div class="w-[1280px] h-[600px] overflow-auto">
 
 
     <table class="min-w-[1400px] text-left text-sm font-light">
@@ -41,7 +41,7 @@
             text-lime-600
         @else
             text-yellow-500
-        @endif" name="status" id="status">
+        @endif status-dropdown" data-item-id="{{ $item->id }}" name="status" id="status">
             {{-- <option  value="{{ $item->status }}">{{ $item->status }}</option> --}}
             @foreach ($data['status'] as $status)
             <option value="{{ $status }}" {{ $item->status === $status ? 'selected':''}}>
@@ -151,6 +151,35 @@ $(document).ready(function() {
     );
 });
 </script>
+<script>
+    $(document).ready(function() {
+        // Event listener untuk perubahan status
+        $('.status-dropdown').on('change', function() {
+            const itemId = $(this).data('item-id'); // Dapatkan ID item dari data-item-id
+            const newStatus = $(this).val(); // Dapatkan status yang baru dipilih
+    
+            // Kirim permintaan AJAX
+            $.ajax({
+                url: "{{ route('dashboard.konten-masuk.update', ':id') }}".replace(':id', itemId), // Rute dengan ID dinamis
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}', // CSRF token
+                    status: newStatus // Status baru yang dipilih
+                },
+                success: function(response) {
+                    // Tambahkan kode di sini untuk menangani respons jika diperlukan
+                    console.log(response);
+                },
+                error: function(error) {
+                    // Tambahkan kode di sini untuk menangani error jika diperlukan
+                    console.log(error);
+                }
+            });
+        });
+    });
+    </script>
+    
+
 @endpush
 
 @push('css')

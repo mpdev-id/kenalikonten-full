@@ -28,8 +28,10 @@ route::name('dashboard.')->prefix('dashboard')->group(function(){
 
    route::get('/',[DashboardController::class,'index'])->name('home');
    
-   route::name('konten-masuk')->prefix('konten-masuk')->group(function(){
-    route::get('/',[IssueController::class,'index']);
+   route::name('konten-masuk.')->prefix('konten-masuk')->group(function(){
+    route::get('/',[IssueController::class,'index'])->name('index');
+    Route::post('/update/{id}', [IssueController::class, 'update'])->name('update');
+
   });
 
    route::name('jenis-tim.')->prefix('jenis-tim')->group(function(){

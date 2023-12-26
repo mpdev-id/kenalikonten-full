@@ -31,6 +31,7 @@ route::name('dashboard.')->prefix('dashboard')->group(function(){
    route::name('konten-masuk.')->prefix('konten-masuk')->group(function(){
     route::get('/',[IssueController::class,'index'])->name('index');
     Route::post('/update/{id}', [IssueController::class, 'update'])->name('update');
+    Route::get('/reply', [IssueController::class, 'reply'])->name('reply');
 
   });
 

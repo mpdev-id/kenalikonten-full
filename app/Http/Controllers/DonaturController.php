@@ -8,14 +8,8 @@ class DonaturController extends Controller
 {
     public function index(Request $request)
     {
-        // $donaturs = Donatur::where('status','on')->orderby('id','desc')->get();
-    $sortOrder = $request->query('sort', 'asc'); // default to ascending if not provided
-
-    // Adjust the query based on the sort order
+    $sortOrder = $request->query('sort', 'asc');
     $query = Donatur::where('status', 'on');
-
-    // If the sort order is 'asc', order by donation_date in ascending order
-    // Otherwise, order by donation_date in descending order
     if ($sortOrder == 'asc') {
         $donaturs = $query->orderBy('donation_date', 'asc')->get();
     } else {

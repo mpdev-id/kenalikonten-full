@@ -1,5 +1,5 @@
 @extends('template.backend')
-@section('title','dashboard')
+@section('title','Anggota Tim')
 @section('content')
 <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
 @if($errors->any())
@@ -117,14 +117,13 @@
         @enderror
       </div>
       <div class="my-4">
-        <div class="nftmax-ptabs__sauthor-img nftmax-ptabs__pthumb" id="icons">
+        <span class="text-[#000] mb-2">Foto<span class="text-[#FF1F39]">*</span></span>
+        <div class="flex flex-col gap-3" id="icons">
           <label for="icon">
-            <img class="rounded w-50" loading="lazy" src="" alt="foto tim" id="preview_icon"
+            <img class="rounded shadow w-[50%]" loading="lazy" src="" alt="foto tim" id="preview_icon"
               hidden>
             {{-- <img class="rounded" src="" alt="Foto Profil" id="preview_icon2"> --}}
-            <span class="nftmax-wc__form-main">
-             
-            </span></label>
+           </label>
           <input value="{{ old('icon') }}" id="icon" type="file" name="icon">
         </div>
       </div>

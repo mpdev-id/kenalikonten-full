@@ -1,5 +1,5 @@
 @extends('template.content')
-@section('title','dashboard')
+@section('title','Konten')
 @section('content')
 <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
 @if($errors->any())
@@ -15,9 +15,8 @@
       <form method="post" action="{{ route('dashboard.konten-masuk.sendReply') }}"  enctype="multipart/form-data">
         @csrf
         @method('POST')
-  
         <div class="my-4">
-            <input name="slug" type="hidden" value="{{ $data->slug??'' }}"
+            <input name="id" type="hidden" value="{{ $data->id??'' }}"
               class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
               hidden>
             <span class="text-[#000] mb-2">Judul Konten<span class="text-[#FF1F39]">*</span></span>
@@ -28,8 +27,6 @@
             <span class="text-red-500">*{{ $message }}</span>
             @enderror
           </div>
-
-          
             <div class="my-4">
               <span class="text-[#000] mb-2">Foto utama Konten<span class="text-[#FF1F39]">*</span></span>
               {{-- @if($data->foto) --}}
@@ -44,7 +41,6 @@
               <input value="{{ $data->foto??old('foto') }}" id="foto" type="file" name="foto">
               </div>
           </div>
-
         <div class="my-4">
             <label for="content" class="text-[#000] mb-2">Konten<span class="text-[#FF1F39]">*</span></label>
             <textarea class="shadow-sm shadow" type="text" name="content" data-target-tinymce> {{ $data->content??'' }}
@@ -53,7 +49,6 @@
             <span class="text-red-500">*{{ $message }}</span>
             @enderror
         </div>
-        
         <div class="my-4">
           <label for="status" class="text-[#000] mb-2">Status Konten<span class="text-[#FF1F39]">*</span></label>
           <select name="status" id="status" class="w-full rounded-lg bg-white py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-base" required>
@@ -74,20 +69,15 @@
         </button>
       </div>
     </form>
-
    </div>
   </div>
  </div>
 </div>
 @endsection
-
-
 @push('javascript')
 <script src="https://cdn.tiny.cloud/1/wm933glxqpu4y39cp0hcfxwb0gpa7cc5kak0qiqk0hzvae45/tinymce/6/tinymce.min.js" referrerpolicy="origin">
 </script>
-
 <script>
-    
 "use strict";
 tinymce.init({
     selector: '[data-target-tinymce]',
@@ -96,7 +86,6 @@ tinymce.init({
     menubar: 'file edit view insert format tools table tc help',
     toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview  print | insertfile image media pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment',
 });
-
 </script>
 <script>
   window.onload = function() {
@@ -106,5 +95,4 @@ tinymce.init({
       @endif
   };
 </script>
-
 @endpush

@@ -32,7 +32,7 @@
   </div>
   <div class="flex flex-col text-right">
     <div class="text-right text-zinc-800 text-sm font-normal font-['Poppins']  transition-all ease-in-out duration-700">{{ date_format($donatur->created_at, "Y-m-d") }}</div>
-    <div class="text-right text-zinc-800 text-base font-semibold font-['Poppins']  transition-all ease-in-out duration-700">{{ $donatur->donation }}</div>
+    <div class="text-right text-zinc-800 text-base font-semibold font-['Poppins']  transition-all ease-in-out duration-700">Rp. {{ number_format($donatur->donation, 0, ',', '.') }}</div>
 
   </div>
   </label>

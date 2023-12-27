@@ -1,5 +1,5 @@
 @extends('template.backend')
-@section('title','Dashboard Donatur Tim')
+@section('title','Donatur')
 @section('content')
 <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
 @if($errors->any())
@@ -157,14 +157,15 @@
 
       <div class="my-4">
         <span class="text-[#000] mb-2">Foto / Icon<span class="text-[#FF1F39]">*</span></span>
-        <div class="nftmax-ptabs__sauthor-img nftmax-ptabs__pthumb" id="icons">
-         <label for="icon">
-          <img class="rounded max-w-[40%]" loading="lazy" src="" alt="icon" id="preview_icon" hidden>
-          <span class="nftmax-wc__form-main">
-          </span></label>
-         <input value="{{ old('icon') }}" id="icon" type="file" name="icon">
+        <div class="flex flex-col gap-3" id="icons">
+          <label for="icon">
+            <img class="rounded shadow w-[50%]" loading="lazy" src="" alt="foto tim" id="preview_icon"
+              hidden>
+            {{-- <img class="rounded" src="" alt="Foto Profil" id="preview_icon2"> --}}
+           </label>
+          <input value="{{ old('icon') }}" id="icon" type="file" name="icon">
         </div>
-       </div>
+      </div>
        <button class="w-full px-5 bg-[#FF7366] shadow-xl rounded-full py-3 text-[#fff]">
         Simpan
        </button>
@@ -209,7 +210,7 @@
           const bestMomentInput = document.getElementById('icon');
           const bestMomentPreview = document.getElementById('preview_icon');
           bestMomentInput.addEventListener('change', (event) => {
-              handleImageUpload(event, 'preview_icon');
+              handleImageUpload(event, 'preview_icon2');
           });
           const modal = document.getElementById("modalKirim");
           const modalKirimKonten = document.getElementById("modalKirimKonten");
@@ -272,8 +273,8 @@
     $(modal).removeClass("hidden").addClass("opacity-100 translate-y-0");
     $('#modalKirim input[name="id"]').val(teamData.id);
     $('#modalKirim input[name="name"]').val(teamData.name);
-    $('#modalKirim input[name="donation"]').val(teamData.donation);
     $('#modalKirim input[name="donation_date"]').val(teamData.donation_date);
+    $('#modalKirim input[name="donation"]').val(teamData.donation);
     const gambarTim = document.getElementById("preview_icon");
    gambarTim.src = teamData.icon;
    gambarTim.removeAttribute("hidden");

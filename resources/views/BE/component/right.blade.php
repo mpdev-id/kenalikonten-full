@@ -1,6 +1,6 @@
 <section class="grow headerkanan">
     <div class="h-[60px] px-5 bg-neutral-100 justify-between items-center inline-flex w-full shadow">
-        <div class="text-zinc-800 text-2xl font-medium font-['Poppins']">Beranda</div>
+        <div class="text-zinc-800 text-2xl font-medium font-['Poppins']">@yield('title')</div>
         <div class="justify-start items-center gap-2 flex">
             <div class="text-black text-sm font-normal font-['Poppins']">Admin satu</div>
             <div class="justify-start items-center gap-0.5 flex">

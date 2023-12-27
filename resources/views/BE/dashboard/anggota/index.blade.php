@@ -1,5 +1,5 @@
 @extends('template.backend')
-@section('title','dashboard')
+@section('title','Anggota Tim')
 @section('content')
 <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
 @if($errors->any())
@@ -133,15 +133,16 @@
 
    <div class="my-4">
     <span class="text-[#000] mb-2">Foto<span class="text-[#FF1F39]">*</span></span>
-    <div class="nftmax-ptabs__sauthor-img nftmax-ptabs__pthumb" id="fotos">
-     <label for="foto">
-      <img class="rounded w-50" loading="lazy" src="" alt="Foto" id="preview_foto" hidden>
-      {{-- <img class="rounded" src="" alt="Foto Profil" id="preview_foto2"> --}}
-      <span class="nftmax-wc__form-main">
-      </span></label>
-     <input value="{{ old('foto') }}" id="foto" type="file" name="foto">
+    <div class="flex flex-col gap-3" id="fotos">
+      <label for="foto">
+        <img class="rounded shadow w-[50%]" loading="lazy" src="" alt="foto tim" id="preview_foto"
+          hidden>
+        {{-- <img class="rounded" src="" alt="Foto Profil" id="preview_foto2"> --}}
+       </label>
+      <input value="{{ old('foto') }}" id="foto" type="file" name="foto">
     </div>
-   </div>
+  </div>
+
    <button class="w-full px-5 bg-[#FF7366] shadow-xl rounded-full py-3 text-[#fff]">
     Simpan
    </button>

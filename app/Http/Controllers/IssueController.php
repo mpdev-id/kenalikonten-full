@@ -49,10 +49,10 @@ class IssueController extends Controller
             'content' => 'required|min:10',
             'status' => 'required',
         ]);
-        $slug = Str::slug($request->title, '-');
+        $slug = Str::slug($request->title, '-').'-'.str::random(3);
     
         try {
-            $content = Content::firstOrNew(['slug' => $slug]);
+            $content = Content::firstOrNew(['id' => $request->id]);
     
             if ($request->hasFile('foto')) {
                 $foto = $request->file('foto');

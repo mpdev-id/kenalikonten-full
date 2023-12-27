@@ -2,7 +2,7 @@
  <footer class="mt-[188px] bg-[#39BFBF] flex flex-wrap transition-all ease-in-out duration-700">
     <div class="w-auto sm:w-[1280px] m-auto">
       <div
-        class="w-auto lg:w-[936px] flex flex-col xl:flex-row justify-between mx-auto py-[60px] px-4 sm:px-8 xl:gap-y-0 gap-y-4">
+        class="w-auto max-w-7xl flex flex-col xl:flex-row justify-between mx-auto py-[60px]  px-4 sm:px-8 md:px-16 lg:px-20 xl:px-32 xl:gap-y-0 gap-y-4">
        
         <div class="w-auto md:w-[400px]">
           <img class="sm:w-[167px] h-[90px] mb-2" src="{{ asset('FE') }}/dist/images/logo-main.png"

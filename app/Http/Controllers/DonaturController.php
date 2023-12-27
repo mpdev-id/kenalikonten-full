@@ -28,14 +28,13 @@ class DonaturController extends Controller
     }
  
     public function delete($id){
-        $tim = Donatur::find($id);
-        // dump($tim);
-        if ($tim) {
-            $tim->update(['status' => 'off']);
+        $donatur = Donatur::find($id);
+        // dump($donatur);
+        if ($donatur) {
+            $donatur->update(['status' => 'off']);
             return redirect()->back();
         } else {
-            // Handle jika ID tidak ditemukan, misalnya dengan menampilkan pesan kesalahan
-            return redirect()->back()->with('error', 'Tim tidak ditemukan.');
+            return redirect()->back()->with('error', 'Donatur tidak ditemukan.');
         }
     }
     
@@ -59,20 +58,19 @@ class DonaturController extends Controller
                 $icon->move(public_path($path), $imageName);
                 $donatur->icon = url($path . $imageName);
             }
-            $donatur->name = $request->name;
-            $donatur->donation = $request->donation;
+            $donatur->name      = $request->name;
+            $donatur->donation  = $request->donation;
             $donatur->donation_date = $request->donation_date;
-            $donatur->status = $donatur->status ?? 'on';
+            $donatur->status    = $donatur->status ?? 'on';
             $donatur->save();
             // dump($donatur);
 
             return redirect()
                 ->back()
-                ->with('success', 'Tim berhasil ditambahkan');
+                ->with('success', 'Donatur berhasil ditambahkan');
 
         } catch (\Throwable $th) {
             \Log::error($th);
-    
             return redirect()
                 ->back()
                 ->with('error', 'Error: ' . $th->getMessage());

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Issue;
 use App\Http\Requests\StoreIssueRequest;
 use App\Http\Requests\UpdateIssueRequest;
+use App\Models\Content;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class IssueController extends Controller
 {
@@ -34,44 +36,54 @@ class IssueController extends Controller
         return view('BE.dashboard.konten.reply');
     }
 
-    public function sendReply(Request $request){
+    public function editReply($slug){
+        $data = Content::where('slug', $slug)->first();
+        return view('BE.dashboard.konten.reply',compact('data'));
+    }
+
+    public function sendReply(Request $request)
+    {
         $request->validate([
             'foto' => 'image|max:2048|mimes:jpeg,png,jpg',
             'title' => 'required|max:500',
             'content' => 'required|min:10',
             'status' => 'required',
         ]);
+        $slug = Str::slug($request->title, '-');
     
         try {
-            $team = ::firstOrNew(['name'=>$request->name]);
-            if ($request->hasFile('icon')) {
-                $icon = $request->file('icon');
-                $path = '/img/teams/' . date('Y') . '/' . date('m') . '/';
-                $imageName = 'icon-team-' . sha1($icon->getClientOriginalName()) . '.' . $icon->getClientOriginalExtension();
-                $icon->move(public_path($path), $imageName);
-                $team->icon = url($path . $imageName);
+            $content = Content::firstOrNew(['slug' => $slug]);
+    
+            if ($request->hasFile('foto')) {
+                $foto = $request->file('foto');
+                $path = '/img/contents/' . date('Y') . '/' . date('m') . '/';
+                $imageName = 'foto-content-' . $slug . '.' . $foto->getClientOriginalExtension();
+                $foto->move(public_path($path), $imageName);
+                $content->foto = url($path . $imageName);
             }
-            // $team->name  = $request->name;
-            $team->title = $request->title;
-            $team->link_join = $request->link_join;
-            $team->information = $request->information;
-            $team->loker_status = 'on';
-            $team->save();
-
-
+    
+            $content->title = $request->title;
+            $content->slug =  $slug;
+            $content->content = $request->content;
+            $content->status = $request->status;
+            $content->public_status = 'visible';
+    
+            $content->save();
+    
             return redirect()
                 ->back()
-                ->with('success', 'Loker Tim berhasil ditambahkan');
-
+                ->with('success', 'Konten berhasil ditambahkan');
+    
         } catch (\Throwable $th) {
+            dd($th);
             \Log::error($th);
     
             return redirect()
                 ->back()
-                ->with('error', 'Error: ' . $th->getMessage());
+                ->with('error', 'Terjadi kesalahan: ' . $th->getMessage());
         }
     }
-
+    
     /**
      * Update the specified resource in storage.
      */

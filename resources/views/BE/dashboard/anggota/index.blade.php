@@ -42,7 +42,7 @@
         <span class="text-zinc-800 text-sm font-normal font-Poppins">{{ $item->name }}</span>
        </td>
        <td class="p-2">
-        <span class="text-zinc-800 text-sm font-normal font-Poppins text-wrap">{{ $item->team->name }}</span>
+        <span class="text-zinc-800 text-sm font-normal font-Poppins text-wrap"> {{ isset($item->team) && $item->team->name ?$item->team->name: 'terhapus' }} </span>
        </td>
        <td class="p-2">
         <span class="text-zinc-800 text-sm font-normal font-Poppins text-wrap">{{ $item->quote }}</span>

@@ -29,7 +29,8 @@ class TeamController extends Controller
         $tim = Team::find($id);
         // dump($tim);
         if ($tim) {
-            $tim->update(['status' => 'off']);
+            $tim->delete();
+            // $tim->update(['status' => 'off']);
             return redirect()->back();
         } else {
             // Handle jika ID tidak ditemukan, misalnya dengan menampilkan pesan kesalahan
@@ -74,7 +75,7 @@ class TeamController extends Controller
             }
             $team->name = $request->name;
             $team->status = $team->status ?? 'on';
-            $team->status_loker = $team->loker ?? 'off';
+            $team->loker_status = $team->loker ?? 'off';
             $team->save();
 
             return redirect()
@@ -83,6 +84,7 @@ class TeamController extends Controller
 
         } catch (\Throwable $th) {
             \Log::error($th);
+            dd($th);
     
             return redirect()
                 ->back()

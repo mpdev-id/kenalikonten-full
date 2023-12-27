@@ -32,6 +32,8 @@ route::name('dashboard.')->prefix('dashboard')->group(function(){
     route::get('/',[IssueController::class,'index'])->name('index');
     Route::post('/update/{id}', [IssueController::class, 'update'])->name('update');
     Route::get('/reply', [IssueController::class, 'reply'])->name('reply');
+    Route::get('/reply/{slug}', [IssueController::class, 'editReply'])->name('editReply');
+    Route::post('/sendReply', [IssueController::class, 'sendReply'])->name('sendReply');
 
   });
 

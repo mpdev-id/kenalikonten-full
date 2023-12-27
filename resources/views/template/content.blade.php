@@ -69,9 +69,9 @@
             <div id="loading"></div>
         </div>
         <!-- left atas-->
-        @include('BE.component.left')
+        {{-- <!-- @include('BE.component.left') --> --}}
         <!-- right atas -->
-        @include('BE.component.right')
+        <!-- @include('BE.component.right') -->
 
         <!-- start content -->
         <section class="p-5 conten">

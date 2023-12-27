@@ -107,12 +107,13 @@
         {{-- action --}}
         <td class="w-[100px] p-2 flex justify-center align-center mt-3 sticky right-0  z-10 bg-neutral-100 ">
 
-        <a href="{{ route('dashboard.konten-masuk.reply') }}">
+        <a onclick="openNewWindow('{{ route('dashboard.konten-masuk.reply') }}'); return true;">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M9.99991 9.00026V7.41026C9.99991 6.52026 8.91991 6.07026 8.28991 6.70026L3.69991 11.2903C3.60721 11.3828 3.53366 11.4927 3.48348 11.6136C3.4333 11.7346 3.40747 11.8643 3.40747 11.9953C3.40747 12.1262 3.4333 12.2559 3.48348 12.3769C3.53366 12.4979 3.60721 12.6077 3.69991 12.7003L8.28991 17.2903C8.91991 17.9203 9.99991 17.4803 9.99991 16.5903V14.9003C14.9999 14.9003 18.4999 16.5003 20.9999 20.0003C19.9999 15.0003 16.9999 10.0003 9.99991 9.00026Z" fill="#FF7366"/>
                 </svg>
                 
         </a>
+       
        </td>
       </tr>
       @empty
@@ -170,6 +171,7 @@ $(document).ready(function() {
                 success: function(response) {
                     // Tambahkan kode di sini untuk menangani respons jika diperlukan
                     // $('#data');
+                    return false;
                     console.log(response);
                 },
                 error: function(error) {
@@ -209,7 +211,12 @@ $(document).ready(function() {
       });
   });
 
-    
+
+        function openNewWindow(url) {
+            var newWindow = window.open(url, '_blank', 'height=800,width=1440');
+            newWindow.focus();
+        }
+      
     </script>
     
 
@@ -245,4 +252,6 @@ $(document).ready(function() {
 
 </style> 
 @endpush
+
+
 

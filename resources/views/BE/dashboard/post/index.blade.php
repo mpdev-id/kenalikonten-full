@@ -53,7 +53,7 @@
 
               <td class="whitespace-nowrap p-2 flex items-center">
                 
-                <a id="tambahpost" href="#">
+                <a href="" onclick="openNewWindow('{{ route('dashboard.konten-masuk.editReply',$post->slug) }}'); return false;" >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -175,7 +175,11 @@ function confirmDeletion(postId) {
     }
 }
 
-
+        function openNewWindow(url) {
+            var newWindow = window.open(url, '_blank', 'height=800,width=1440');
+            newWindow.focus();
+        }
+      
   </script>
   
   @endpush

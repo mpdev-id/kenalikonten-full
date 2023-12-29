@@ -1,8 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\Content;
-use App\Http\Requests\StoreContentRequest;
-use App\Http\Requests\UpdateContentRequest;
 use Illuminate\Http\Request;
 class ContentController extends Controller
 {

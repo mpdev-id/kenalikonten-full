@@ -26,7 +26,7 @@ Route::name('index.')->middleware('guest')->prefix('/')->group(function() {
  route::get('/tim-kami',[FrontEndController::class,'team'])->name('team');
 });
 
-route::name('dashboard.')->prefix('dashboard')->group(function(){
+route::name('dashboard.')->prefix('d45h>')->group(function(){
 
    route::get('/',[DashboardController::class,'index'])->name('home');
    

@@ -98,7 +98,7 @@
   src="https://www.youtube.com/embed/0RktiyVNu7U?autoplay=1&mute=0&disablekb=1&loop=1&start=1&controls=0"
   title="YouTube: Sebelum percaya judulnya, pause dulu" frameborder="0"></iframe>
 
-<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+{{-- <div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div> --}}
 
   </div>
 </section>
@@ -125,7 +125,7 @@
         class="max-[1279px]:min-w-full lg:w-[279px] h-[300px] rounded-2xl bg-[#FFF] shadow-xl sm:mr-4 flex flex-col gap-3 cursor-grab swiper-slide">
         <div class="mx-auto mt-9">
           <div class="w-10 h-10 bg-red-100 rounded-lg flex justify-center items-center">
-            <img src="{{ asset('').$team->icon }}" alt="{{ $team->name }} logo">
+            <img src="{{ asset($team->icon) }}" alt="{{ $team->name }} logo">
           </div>
           {{-- <svg width="41" height="40" viewBox="0 0 41 40" fill="none"
             xmlns="http://www.w3.org/2000/svg">

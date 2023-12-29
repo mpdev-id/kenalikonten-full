@@ -1,7 +1,6 @@
 @extends('template.content')
 @section('title','Konten')
 @section('content')
-<!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
 @if($errors->any())
 <div class="text-red-500 flex flex-row">
  *Terdapat kesalahan dalam pengisian form. Mohon periksa kembali.
@@ -75,8 +74,7 @@
 </div>
 @endsection
 @push('javascript')
-<script src="https://cdn.tiny.cloud/1/wm933glxqpu4y39cp0hcfxwb0gpa7cc5kak0qiqk0hzvae45/tinymce/6/tinymce.min.js" referrerpolicy="origin">
-</script>
+<script src="https://cdn.tiny.cloud/1/hi8bmxfm0rlxa2v6t9sjpewk9qk35661abursna2c3scoqyx/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
 "use strict";
 tinymce.init({

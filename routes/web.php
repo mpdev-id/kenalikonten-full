@@ -10,6 +10,8 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
+// cronjob
+// /usr/bin/ln -sf /home/kenh4992/kenalikonten.com/public/img /home/kenh4992/public_html
 
 Route::name('index.')->middleware('guest')->prefix('/')->group(function() {
  route::post('/',[FrontEndController::class,'upload'])->name('upload');

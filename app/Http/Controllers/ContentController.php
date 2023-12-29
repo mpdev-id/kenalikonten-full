@@ -23,7 +23,8 @@ class ContentController extends Controller
     public function status($id){
         $post = Content::find($id);
         if (!$post) {
-            throw new \Exception("Content not found for ID: {$id}");
+            throw new \Exception("Content not found for ID: {$id}
+            ");
         }
         try {
             // Toggle the status

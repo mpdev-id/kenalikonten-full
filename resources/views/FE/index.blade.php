@@ -94,10 +94,12 @@
   <div
     class="max-[1240px]:min-w-full max-[1280px]:p-4 w-[400px] mt-8 sm:mt-4 transition-all ease-in-out duration-700">
     <iframe class="rounded-[8px] min-w-full min-[1280px]:h-52 min-[600px]:h-96  max-[414px]:h-52"
-      id="ytplayer"
-      src="https://www.youtube.com/embed/0RktiyVNu7U?autoplay=1&mute=0&disablekb=1&loop=1&start=1&controls=0"
-      title="YouTube: Sebelum percaya judulnya, pause dulu" frameborder="0"
-      allowfullscreen></iframe>
+  id="ytplayer"
+  src="https://www.youtube.com/embed/0RktiyVNu7U?autoplay=1&mute=0&disablekb=1&loop=1&start=1&controls=0"
+  title="YouTube: Sebelum percaya judulnya, pause dulu" frameborder="0"></iframe>
+
+<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+
   </div>
 </section>
 
@@ -107,7 +109,7 @@
   <div class="flex flex-wrap justify-center items-center w-[1024px] mx-auto swiper h-fit">
     <div class="w-[661px] text-center my-4 transition-all ease-in-out duration-700">
       <h1
-        class="text-[32px] color-[#333] font-semibold leading-none w-[360px] md:w-[461px] mx-auto">
+        class="max-sm:text-xl text-[32px] color-[#333] font-semibold leading-none w-[360px] md:w-[361px] mx-auto">
         Jadi bagian dari tim <span class="text-[#39BFBF]"> gerakan </span> Kenali Konten
       </h1>
       <p class="mt-5">Gabung dan gerak bersama dengan menjadi tim relawan gerakan Kenali
@@ -424,5 +426,22 @@
             });
         },
     };
+    </script>
+    <script>
+      const player = document.getElementById("ytplayer");
+
+// Prevent clicking the pause button
+player.addEventListener("click", function(event) {
+  if (event.target.id === "ytp-pause-button") {
+    event.preventDefault();
+  }
+});
+
+// Periodically check if the video is paused and resume it if necessary
+setInterval(function() {
+  if (player.paused) {
+    player.play();
+  }
+}, 1000);
     </script>
     @endpush

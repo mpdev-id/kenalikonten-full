@@ -11,8 +11,8 @@
 <div class="flex flex-col">
  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
   <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-   <div class="w-[1280px] h-[600px] overflow-auto">
-    <table class="min-w-[1400px] text-left text-sm font-light">
+   <div class="max-w-[1280px] h-[600px] overflow-auto w-100">
+    <table class=" text-left text-sm font-light">
      <thead class=" top-0 border-b font-medium bg-emerald-500 bg-red-100 sticky z-[100]">
       <tr class="p-2 ">
        <th scope="col" class="w-[30px] px-1">No</th>

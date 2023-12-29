@@ -25,24 +25,24 @@ class FrontEndController extends Controller
             'email' => 'required|email',
         ]);
         try {
-            $issue = new Issue;
+            $issue = new Issue();
             if ($request->hasFile('screenshoot1')) {
                 $screenshoot1 = $request->file('screenshoot1');
-                $path1 = '/img/issue/'.date('Y').'/'.date('m').'/';
+                $path1      = '/img/issue/'.date('Y').'/'.date('m').'/';
                 $imageName1 = 'issue-' . sha1($screenshoot1->getClientOriginalName()) . '.' . $screenshoot1->getClientOriginalExtension();
                 $screenshoot1->move(public_path($path1), $imageName1);
                 $issue->screenshoot1 = url($path1 . $imageName1);
             }
             if ($request->hasFile('screenshoot2')) {
                 $screenshoot2 = $request->file('screenshoot2');
-                $path2 = '/img/issue/'.date('Y').'/'.date('m');
+                $path2      = '/img/issue/'.date('Y').'/'.date('m');
                 $imageName2 = 'issue2-' . sha1($screenshoot2->getClientOriginalName()) . '.' . $screenshoot2->getClientOriginalExtension();
                 $screenshoot2->move(public_path($path2), $imageName2);
                 $issue->screenshoot2 =url( $path2 . $imageName2);
             }
-            $issue->link = $request->link;
+            $issue->link   = $request->link;
             $issue->detail = $request->detail;
-            $issue->email = $request->email;
+            $issue->email  = $request->email;
             $issue->status = 'not_validate';
             // Save the issue after setting all the fields
             $issue->save();
@@ -98,3 +98,4 @@ class FrontEndController extends Controller
         return view("FE.team",compact('teams'));
     }
 }
+namespace App\Http\Controllers;

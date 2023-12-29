@@ -136,8 +136,11 @@
           </svg> --}}
         </div>
         <div class="py-3 transition-all ease-in-out duration-700">
-          <h2 class="text-center">{{ $team->name }}</h2>
-          <h1 class="text-center text-[20px] font-semibold ">{{ $team->title }}</h1>
+          {{-- 2023.12.30 - revisi pake hardcode --}}
+          {{-- <h2 class="text-center">{{ $team->name }}</h2>
+          <h1 class="text-center text-[20px] font-semibold ">{{ $team->name }}</h1> --}}
+          <h2 class="text-center">Tim Relawan</h2>
+          <h1 class="text-center text-[20px] font-semibold ">{{ $team->name }}</h1>
         </div>
         <div class="w-[245px] max-[1024px]:w-full mx-auto">
           <p class="text-center">
@@ -150,7 +153,7 @@
             class="text-[16px] text-[#FF7366] flex flex-row items-center hover:font-bold">
             Daftar
             <img class="w-6" src="{{ asset('FE') }}/dist/images/ic-arrow-right.png"
-              alt="Detail {{ $team->title }}">
+              alt="Detail {{ $team->name }}">
           </a>
         </div>
       </div>

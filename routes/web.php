@@ -26,17 +26,18 @@ Route::name('index.')->middleware('guest')->prefix('/')->group(function() {
  route::get('/tim-kami',[FrontEndController::class,'team'])->name('team');
 });
 
-route::name('dashboard.')->prefix('d45h>')->group(function(){
+route::name('dashboard.')->prefix('d45h804rd')->group(function(){
 
    route::get('/',[DashboardController::class,'index'])->name('home');
    
+
+
    route::name('konten-masuk.')->prefix('konten-masuk')->group(function(){
     route::get('/',[IssueController::class,'index'])->name('index');
     Route::post('/update/{id}', [IssueController::class, 'update'])->name('update');
     Route::get('/reply', [IssueController::class, 'reply'])->name('reply');
     Route::get('/reply/{slug}', [IssueController::class, 'editReply'])->name('editReply');
     Route::post('/sendReply', [IssueController::class, 'sendReply'])->name('sendReply');
-
   });
 
    route::name('jenis-tim.')->prefix('jenis-tim')->group(function(){

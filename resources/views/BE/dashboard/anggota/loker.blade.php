@@ -129,7 +129,7 @@
         <span class="text-red-500">*{{ $message }}</span>
         @enderror
       
-      <div class="my-4">
+      {{-- <div class="my-4">
         <input name="id" type="hidden"
           class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
           hidden>
@@ -140,7 +140,7 @@
         @error('title')
         <span class="text-red-500">*{{ $message }}</span>
         @enderror
-      </div>
+      </div> --}}
     
       <div class="my-4">
         <span class="text-[#000] mb-2">Deskripsi<span class="text-[#FF1F39]">*</span></span>

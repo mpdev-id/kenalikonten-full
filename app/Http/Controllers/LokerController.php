@@ -42,7 +42,7 @@ class LokerController extends Controller
         $request->validate([
             // 'icon' => 'image|max:2048|mimes:jpeg,png,jpg',
             'name'  => 'required|max:50',
-            'title' => 'required|max:50',
+            // 'title' => 'required|max:50',
             'link_join' => 'required|max:550',
             'information' => 'required|max:550',
         ]);
@@ -57,7 +57,7 @@ class LokerController extends Controller
                 $team->icon = url($path . $imageName);
             }
             // $team->name  = $request->name;
-            $team->title = $request->title;
+            // $team->title = $request->title;
             $team->link_join = $request->link_join;
             $team->information = $request->information;
             $team->loker_status = 'on';

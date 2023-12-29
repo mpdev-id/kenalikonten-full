@@ -5,7 +5,7 @@
     </div>
     <div class="self-stretch h-[228px] flex-col justify-start items-start gap-3 flex">
         <div
-            class="self-stretch h-9 px-3 {{ request()->is('dashboard') ? 'border-r-2 border-red-400' : '' }}  justify-start items-center gap-2 inline-flex  hover:border-r-2 hover:border-red-400 ">
+            class="self-stretch h-9 px-3{{ request()->is('*/dashboard*') ? 'border-r-2 border-red-400' : '' }}  justify-start items-center gap-2 inline-flex  hover:border-r-2 hover:border-red-400 ">
             <div class="w-6 h-6 relative">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -14,7 +14,7 @@
                 </svg>
             </div>
             <a href="{{ route('dashboard.home') }}"
-                class="{{ request()->is('dashboard') ? '  text-red-400 text-base font-normal ' : 'text-neutral-400 text-base font-normal' }} text-base font-normal font-['Poppins']">
+                class="{{ request()->is('dashboard') ? '  text-red-400 text-base font-normal ' : 'text-neutral-400 text-base font-normal' }} text-base font-normal font-['Poppins'] hover:text-red-400">
                 Beranda</a>
         </div>
 

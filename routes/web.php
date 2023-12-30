@@ -9,9 +9,24 @@ use App\Http\Controllers\LokerController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 // cronjob
 // /usr/bin/ln -sf /home/kenh4992/kenalikonten.com/public/img /home/kenh4992/public_html
+// /usr/bin/ln -sf /home/kenh4992/kenalikonten-full/public/img /home/kenh4992/public_html/dev
+
+
+Route::get('/cleans', function () {
+  // Reoptimized class loader:
+  Artisan::call('optimize');
+  Artisan::call('route:clear');
+  Artisan::call('cache:clear');
+  Artisan::call('route:clear');
+  Artisan::call('view:clear');
+  Artisan::call('config:clear');
+  return redirect()->route('index.home');
+  // return 'Application cache has been cleared';
+});
 
 Route::name('index.')->middleware('guest')->prefix('/')->group(function() {
  route::post('/',[FrontEndController::class,'upload'])->name('upload');

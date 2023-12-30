@@ -6,6 +6,7 @@ use App\Models\Donatur;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+
 class FrontEndController extends Controller
 {
     function index()
@@ -84,7 +85,7 @@ class FrontEndController extends Controller
         }
     public function content($slug)
     {
-        $content = Content::orWhere('public_status','visible')->orWhere('slug',  $slug)->first();
+        $content = Content::where('public_status','visible')->where('slug',  $slug)->first();
         return view("FE.content", compact('content'));
     }
     public function donatur()
@@ -98,4 +99,3 @@ class FrontEndController extends Controller
         return view("FE.team",compact('teams'));
     }
 }
-namespace App\Http\Controllers;

@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Artisan;
 
 Route::get('/cleans', function () {
   // Reoptimized class loader:
-  Artisan::call('optimize');
+  // Artisan::call('optimize');
   Artisan::call('route:clear');
   Artisan::call('cache:clear');
   Artisan::call('route:clear');

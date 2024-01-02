@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\IssueController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LokerController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\TeamController;
@@ -39,6 +40,10 @@ Route::name('index.')->middleware('guest')->prefix('/')->group(function() {
  Route::get('/cari-validasi', [FrontEndController::class, 'cariValidasi'])->name('valid.cari-validasi');
  route::get('/donatur',[FrontEndController::class,'donatur'])->name('donatur');
  route::get('/tim-kami',[FrontEndController::class,'team'])->name('team');
+ 
+ route::get('/aks354dm!n',[LoginController::class,'login'])->name('login');
+ route::post('/aks354dm!n',[LoginController::class,'loginAuth'])->name('login.auth');
+ 
 });
 
 route::name('dashboard.')->prefix('d45h804rd')->group(function(){

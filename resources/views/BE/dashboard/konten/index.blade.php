@@ -147,7 +147,7 @@
  $(document).ready(function() {
   // Event listener untuk perubahan status
   $('.status-dropdown').on('change', function() {
-   const itemId = $(this).data('item-id'); // Dapatkan ID item dari data-item-id
+   const itemId    = $(this).data('item-id'); // Dapatkan ID item dari data-item-id
    const newStatus = $(this).val(); // Dapatkan status yang baru dipilih
    // Kirim permintaan AJAX
    $.ajax({
@@ -160,7 +160,7 @@
     , success: function(response) {
      // Tambahkan kode di sini untuk menangani respons jika diperlukan
      // $('#data');
-     return false;
+     
      console.log(response);
     }
     , error: function(error) {

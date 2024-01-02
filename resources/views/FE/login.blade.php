@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link  rel="icon" href="{{ asset('FE/dist/icons/favicon.ico') }}" type="image/x-icon">
+  
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet">
@@ -79,24 +80,32 @@
     
     </div> --}}
     
-    <div class=" max-w-md min-h-screen flex justify-center items-center mx-auto flex-col">
-  @if ($errors->any())
-  <div class="alert alert-danger">
-      <ul>
-          @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-          @endforeach
-      </ul>
-  </div>
-@endif
-  <div class="w-[300px] bg-pink-200 w-full p-4 m-5 flex items-center">
+  <div id="form" class="max-w-md flex justify-center items-center mx-auto flex-col h-screen">
+    <div class="w-500 bg-gray-300  w-full rounded">
+
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+    @endif
+  <div class="w-full p-4 flex items-center flex justify-center bg-opacity-50 bg-red-50 border-dark">
     <form action="{{ route('index.login.auth') }}" method="post">
       @csrf
-      
+      <div class="flex justify-center">
+        <img class="w-[100px]" src="{{ asset('FE') }}/dist/images/logo-main.png" />
+        
+      </div>
+      <div class="my-5 text-center">
+        <span class="text font-semibold" > Masuk Admin Dashboard</span>
+      </div>
       <!-- Username Field -->
-      <div class="mb-4 bg">
+      <div class="mb-4">
           <label for="username" class="block text-sm font-medium text-gray-600">Username:</label>
-          <input type="text" name="username" id="username" class="mt-1 p-2 min-w-full border rounded-md @error('username') border-red-500 @enderror" value="{{ old('username') }}" required>
+          <input type="text" placeholder="Masukkan username" name="username" id="username" class="w-[350px] mt-1 p-2 min-w-full border rounded-md @error('username') border-red-500 @enderror" value="{{ old('username') }}" required>
           @error('username')
               <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
           @enderror
@@ -105,7 +114,7 @@
       <!-- Password Field -->
       <div class="mb-4">
           <label for="password" class="block text-sm font-medium text-gray-600">Password:</label>
-          <input type="password" name="password" id="password" class="mt-1 p-2 w-full border rounded-md @error('password') border-red-500 @enderror" required>
+          <input type="password" placeholder="Masukkan password" name="password" id="password" class="mt-1 p-2 w-full border rounded-md @error('password') border-red-500 @enderror" required>
           @error('password')
               <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
           @enderror
@@ -113,12 +122,13 @@
       
       <!-- Submit Button -->
       <div class="mb-4">
-          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Login</button>
+          <button type="submit" class="bg-[#FF7366] text-white px-4 py-2 rounded-xl hover:shadow-lg w-full transition-all delay-350 duration-300">Masuk sekarang</button>
       </div>
   </form>
     </div>
     </div>
       
+    </div>
   </body>
   </html>
   @yield('content')

@@ -68,7 +68,7 @@
       }
     </style>
   </head>
-  <body class="font-[poppins] bg-[#F7F7F7] ">
+  <body class="font-[poppins] bg-[url({{ asset('FE/dist/images/img-bg-admin.png') }})] bg-cover bg-no-repeat bg-center">
     <!-- Tambahkan preloader -->
     <div id="preloader" class="flex flex-col gap-y-8 h-[100vh]">
       <img src="{{ asset('FE') }}/dist/images/logo-main.png" />
@@ -81,7 +81,7 @@
     </div> --}}
     
   <div id="form" class="max-w-md flex justify-center items-center mx-auto flex-col h-screen">
-    <div class="w-500 bg-gray-300  w-full rounded">
+    <div class="w-500  bg-white-400 bg-opacity-20 w-full  backdrop-blur rounded border-3 border-gray-800">
 
       @if ($errors->any())
       <div class="alert alert-danger">
@@ -92,7 +92,7 @@
           </ul>
       </div>
     @endif
-  <div class="w-full p-4 flex items-center flex justify-center bg-opacity-50 bg-red-50 border-dark">
+  <div class="w-full p-4 flex items-center flex justify-center border-dark">
     <form action="{{ route('index.login.auth') }}" method="post">
       @csrf
       <div class="flex justify-center">

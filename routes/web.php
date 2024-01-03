@@ -46,7 +46,7 @@ Route::name('index.')->middleware('guest')->prefix('/')->group(function() {
  
 });
 
-route::name('dashboard.')->prefix('d45h804rd')->group(function(){
+route::name('dashboard.')->prefix('d45h804rd')->middleware('auth')->group(function(){
 
    route::get('/',[DashboardController::class,'index'])->name('home');
    

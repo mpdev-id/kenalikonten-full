@@ -81,52 +81,55 @@
     </div> --}}
     
   <div id="form" class="max-w-md flex justify-center items-center mx-auto flex-col h-screen">
-    <div class="w-500  bg-white-400 bg-opacity-20 w-full  backdrop-blur rounded border-3 border-gray-800">
-
-      @if ($errors->any())
-      <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-      </div>
-    @endif
-  <div class="w-full p-4 flex items-center flex justify-center border-dark">
-    <form action="{{ route('index.login.auth') }}" method="post">
-      @csrf
-      <div class="flex justify-center">
-        <img class="w-[100px]" src="{{ asset('FE') }}/dist/images/logo-main.png" />
-        
-      </div>
-      <div class="my-5 text-center">
-        <span class="text font-semibold" > Masuk Admin Dashboard</span>
+    <div class="h-[500px] flex item-center bg-white-400 bg-opacity-20 w-full backdrop-blur rounded-[40px] border-2 border-[#333]">
+      
+      <div class="w-full p-4 flex items-center flex justify-center border-dark">
+        <form action="{{ route('index.login.auth') }}" method="post">
+          @csrf
+          <div class="flex justify-center">
+            <img class="w-[125px]" src="{{ asset('FE') }}/dist/images/logo-main.png" />
+            
+          </div>
+  
+          <div class="my-5 text-center">
+            <span class="text font-semibold"> Masuk Admin Dashboard</span>
       </div>
       <!-- Username Field -->
       <div class="mb-4">
-          <label for="username" class="block text-sm font-medium text-gray-600">Username:</label>
-          <input type="text" placeholder="Masukkan username" name="username" id="username" class="w-[350px] mt-1 p-2 min-w-full border rounded-md @error('username') border-red-500 @enderror" value="{{ old('username') }}" required>
-          @error('username')
-              <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-          @enderror
+       <label for="username" class="block text-sm font-medium text-gray-600">Username</label>
+       <input type="text" placeholder="Masukkan username" name="username" id="username" class="w-[350px] mt-1 p-2 min-w-full border rounded-md @error('username') border-red-500 @enderror" value="{{ old('username') }}" required>
+       @error('username')
+       <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+       @enderror
       </div>
-      
+
       <!-- Password Field -->
       <div class="mb-4">
-          <label for="password" class="block text-sm font-medium text-gray-600">Password:</label>
-          <input type="password" placeholder="Masukkan password" name="password" id="password" class="mt-1 p-2 w-full border rounded-md @error('password') border-red-500 @enderror" required>
-          @error('password')
-              <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-          @enderror
+       <label for="password" class="block text-sm font-medium text-gray-600">Password</label>
+       <input type="password" placeholder="Masukkan password" name="password" id="password" class="mt-1 p-2 w-full border rounded-md @error('password') border-red-500 @enderror" required>
+       @error('password')
+       <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+       @enderror
       </div>
-      
+
       <!-- Submit Button -->
       <div class="mb-4">
-          <button type="submit" class="bg-[#FF7366] text-white px-4 py-2 rounded-xl hover:shadow-lg w-full transition-all delay-350 duration-300">Masuk sekarang</button>
+       <button type="submit" class="bg-[#FF7366] text-white px-4 py-2 rounded-xl hover:shadow-lg w-full transition-all delay-350 duration-300">Masuk sekarang</button>
       </div>
-  </form>
+
+      {{-- @if ($errors->any())
+      <div class="text-red-500 font-semibold text-center">
+       <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+       </ul>
+      </div>
+      @endif --}}
+     </form>
     </div>
-    </div>
+   </div>
+
       
     </div>
   </body>

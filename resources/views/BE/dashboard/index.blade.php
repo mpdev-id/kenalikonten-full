@@ -231,7 +231,7 @@
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: {{ $data['bulan']}},
+            labels: $data['bulan'],
             datasets: [{
                 label: 'Total Konten Masuk',
                 data: [290, 225, 80, 336, 145, 100, 80, 98, 87, 29, 54, 60],

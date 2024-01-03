@@ -81,9 +81,9 @@
     </div> --}}
     
   <div id="form" class="max-w-md flex justify-center items-center mx-auto flex-col h-screen">
-    <div class="h-[500px] flex item-center bg-white-400 bg-opacity-20 w-full backdrop-blur rounded-[40px] border-2 border-[#333]">
+    <div class="h-[450px] flex item-center bg-white-400 bg-opacity-20 w-full backdrop-blur rounded-[40px] border-2 border-[#333]">
       
-      <div class="w-full p-4 flex items-center flex justify-center border-dark">
+      <div class="w-full p-4 flex items-center flex justify-center border-dark pt-[60px]">
         <form action="{{ route('index.login.auth') }}" method="post">
           @csrf
           <div class="flex justify-center">
@@ -114,7 +114,7 @@
 
       <!-- Submit Button -->
       <div class="mb-4">
-       <button type="submit" class="bg-[#FF7366] text-white px-4 py-2 rounded-xl hover:shadow-lg w-full transition-all delay-350 duration-300">Masuk sekarang</button>
+       <button type="submit" class="bg-[#FF7366] text-white px-4 py-2 rounded-2xl hover:shadow-lg w-full transition-all delay-350 duration-300">Masuk sekarang</button>
       </div>
 
       {{-- @if ($errors->any())

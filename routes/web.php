@@ -29,7 +29,7 @@ Route::get('/cleans', function () {
   // return 'Application cache has been cleared';
 });
 
-Route::name('index.')->middleware('guest')->prefix('/')->group(function() {
+Route::name('index.')->prefix('/')->middleware(['redirectIfNotFound'])->group(function() {
  route::post('/',[FrontEndController::class,'upload'])->name('upload');
  route::get('/',[FrontEndController::class,'index'])->name('home');
  // list valid
@@ -41,8 +41,8 @@ Route::name('index.')->middleware('guest')->prefix('/')->group(function() {
  route::get('/donatur',[FrontEndController::class,'donatur'])->name('donatur');
  route::get('/tim-kami',[FrontEndController::class,'team'])->name('team');
  
- route::get('/aks354dm!n',[LoginController::class,'login'])->name('login');
- route::post('/aks354dm!n',[LoginController::class,'loginAuth'])->name('login.auth');
+ route::get('/aks354dm!n',[LoginController::class,'login'])->name('login')->middleware('guest');
+ route::post('/aks354dm!n',[LoginController::class,'loginAuth'])->name('login.auth')->middleware('guest');
  
 });
 

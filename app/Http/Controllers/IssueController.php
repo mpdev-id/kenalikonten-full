@@ -53,7 +53,7 @@ class IssueController extends Controller
                 $foto      = $request->file('foto');
                 $path      = 'img/contents/' . date('Y') . '/' . date('m') . '/';
                 $imageName = 'foto-content-' . $slug . '.' . $foto->getClientOriginalExtension();
-                $foto->move(public_path($path), $imageName);
+                $foto->move($path, $imageName);
                 $content->foto = url($path . $imageName);
             }
     

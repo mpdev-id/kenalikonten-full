@@ -55,7 +55,7 @@ public function create(Request $request) {
         //     $foto = $request->file('foto');
         //     $path = 'img/teams/'.date('Y').'/'.date('m').'/';
         //     $imageName = 'foto-team' . sha1($foto->getClientOriginalName()) . '.' . $foto->getClientOriginalExtension();
-        //     $foto->move(public_path($path), $imageName);
+        //     $foto->move($path, $imageName);
         //     $team->foto =url( $path . $imageName);
         // }
 
@@ -72,7 +72,7 @@ public function create(Request $request) {
             $foto = $request->file('foto');
             $path = 'img/members/' . date('Y') . '/' . date('m') . '/';
             $imageName = 'foto-member-' . sha1($foto->getClientOriginalName()) . '.' . $foto->getClientOriginalExtension();
-            $foto->move(public_path($path), $imageName);
+            $foto->move($path, $imageName);
             $team->foto = url($path . $imageName);
         }
         $team->team_id = $request->team_id;

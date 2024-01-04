@@ -51,7 +51,7 @@ class IssueController extends Controller
     
             if ($request->hasFile('foto')) {
                 $foto      = $request->file('foto');
-                $path      = '/img/contents/' . date('Y') . '/' . date('m') . '/';
+                $path      = 'img/contents/' . date('Y') . '/' . date('m') . '/';
                 $imageName = 'foto-content-' . $slug . '.' . $foto->getClientOriginalExtension();
                 $foto->move(public_path($path), $imageName);
                 $content->foto = url($path . $imageName);

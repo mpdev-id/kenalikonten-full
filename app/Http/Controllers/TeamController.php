@@ -51,7 +51,7 @@ class TeamController extends Controller
     
             // if ($request->hasFile('icon')) {
             //     $icon = $request->file('icon');
-            //     $path = '/img/teams/'.date('Y').'/'.date('m').'/';
+            //     $path = 'img/teams/'.date('Y').'/'.date('m').'/';
             //     $imageName = 'icon-team' . sha1($icon->getClientOriginalName()) . '.' . $icon->getClientOriginalExtension();
             //     $icon->move(public_path($path), $imageName);
             //     $team->icon =url( $path . $imageName);
@@ -68,7 +68,7 @@ class TeamController extends Controller
             $team = Team::firstOrNew(['id'=>$request->id]);
             if ($request->hasFile('icon')) {
                 $icon = $request->file('icon');
-                $path = '/img/teams/' . date('Y') . '/' . date('m') . '/';
+                $path = 'img/teams/' . date('Y') . '/' . date('m') . '/';
                 $imageName = 'icon-team-' . sha1($icon->getClientOriginalName()) . '.' . $icon->getClientOriginalExtension();
                 $icon->move(public_path($path), $imageName);
                 $team->icon = url($path . $imageName);

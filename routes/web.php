@@ -20,13 +20,22 @@ use Illuminate\Support\Facades\Artisan;
 Route::get('/cleans', function () {
   // Reoptimized class loader:
   // Artisan::call('optimize');
-  Artisan::call('route:clear');
-  Artisan::call('cache:clear');
-  Artisan::call('route:clear');
-  Artisan::call('view:clear');
-  Artisan::call('config:clear');
+  // Artisan::call('route:clear');
+  // Artisan::call('cache:clear');
+  Artisan::call('route:cache');
+  // Artisan::call('view:clear');
+  // Artisan::call('config:clear');
   return redirect()->route('index.home');
   // return 'Application cache has been cleared';
+});
+Route::get('/storage-link',function(){
+  Artisan::call('storage:link');
+});
+
+Route::get('/storage-link2',function(){
+$target = base_path().'/storage/app/public';
+$linkfolder=$_SERVER['DOCUMENT_ROOT'].'/storage';
+symlink($target,$linkfolder); 
 });
 
 Route::name('index.')->prefix('/')->middleware(['redirectIfNotFound'])->group(function() {

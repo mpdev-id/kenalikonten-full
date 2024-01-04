@@ -53,7 +53,7 @@ class DonaturController extends Controller
             $donatur = Donatur::firstOrNew(['id'=>$request->id]);
             if ($request->hasFile('icon')) {
                 $icon = $request->file('icon');
-                $path = '/img/Donaturs/' . date('Y') . '/' . date('m') . '/';
+                $path = 'img/Donaturs/' . date('Y') . '/' . date('m') . '/';
                 $imageName = 'icon-Donatur-' . sha1($icon->getClientOriginalName()) . '.' . $icon->getClientOriginalExtension();
                 $icon->move(public_path($path), $imageName);
                 $donatur->icon = url($path . $imageName);

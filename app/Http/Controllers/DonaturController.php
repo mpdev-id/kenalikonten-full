@@ -55,7 +55,7 @@ class DonaturController extends Controller
                 $icon = $request->file('icon');
                 $path = 'img/Donaturs/' . date('Y') . '/' . date('m') . '/';
                 $imageName = 'icon-Donatur-' . sha1($icon->getClientOriginalName()) . '.' . $icon->getClientOriginalExtension();
-                $icon->move(public_path($path), $imageName);
+                $icon->move($path, $imageName);
                 $donatur->icon = url($path . $imageName);
             }
             $donatur->name      = $request->name;

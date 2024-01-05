@@ -4,7 +4,7 @@
 {{-- content --}}
 <section class="flex flex-col justify-between mt-8 max-w-5xl mx-auto transition-all ease-in-out duration-700 ">
   <div class="m-4 h-full px-7 rounded-xl items-center">
-    <h2 class="text-4xl font-semibold py-2">{{ $content->title }}</h2>
+    <h2 class="text-4xl font-semibold py-2">{{ $content->title??'' }}</h2>
     
     <div class="text-zinc-500 text-base font-normal font-['Poppins'] md:w-[661px]">
       {{ \Carbon\Carbon::parse($content->created_at)->locale('id')->diffForHumans() }} • <span id="estimated-reading-time"></span> membaca 
@@ -13,9 +13,9 @@
 
     </div>
     <div class="bg-white my-2 rounded">
-      <img class="w-full object-contain md:object-scale-down" src="{{ asset($content->foto) }}" />
+      <img class="w-full object-contain md:object-scale-down" src="{{ asset($content->foto??'') }}" />
     </div>
-    <div id="content">
+    <div id="content" class="max-w-6xl text-wrap">
       {!! $content->content !!}
     </div>
 

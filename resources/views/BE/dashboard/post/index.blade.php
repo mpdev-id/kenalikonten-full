@@ -42,7 +42,7 @@
 
               <td class="whitespace-nowrap p-2">
                 <div
-                  class="w-fit  text-sm font-normal font-['Poppins'] {{$post->status=='fakta'?'text-rose-600':'text-lime-600'}}">
+                  class="w-fit  text-sm font-normal font-['Poppins'] {{$post->status=='hoax'?'text-rose-600':'text-lime-600'}}">
                   {{$post->status}}
               </td>
 
@@ -143,7 +143,7 @@ function confirmDeletion(postId) {
     // Check if the user input matches "HAPUS KONTEN"
     if (userInput === 'HAPUS KONTEN') {
         // Construct the delete URL using the post ID
-        const deleteUrl = `/dashboard/konten-post/delete/${postId}`;
+        const deleteUrl = `/d45h804rd/konten-post/delete/${postId}`;
         
         // Create a form dynamically for submission
         const form = document.createElement('form');

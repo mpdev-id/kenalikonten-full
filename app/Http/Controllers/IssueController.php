@@ -58,7 +58,7 @@ class IssueController extends Controller
             }
     
             $content->title = $request->title;
-            $content->slug  =  $slug;
+            $content->slug  =  $request->slug ?? $slug;
             $content->content = $request->content;
             $content->status = $request->status;
             $content->public_status = 'visible';

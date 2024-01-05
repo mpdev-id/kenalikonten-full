@@ -43,6 +43,10 @@ Route::name('index.')->prefix('/')->middleware(['redirectIfNotFound'])->group(fu
  route::get('/',[FrontEndController::class,'index'])->name('home');
  // list valid
  // Route::get('/get-more-validations',[FrontEndController::class,'getMoreValidations']);
+ Route::get('/content', function () {
+  Artisan::call('route:cache');
+  return redirect()->route('index.content');
+});
  route::get('/validasi',[FrontEndController::class,'valid'])->name('valid');
  Route::get('/validasi/load-more', [FrontEndController::class, 'loadMoreValidations'])->name('valid.load-more');
  route::get('/content/{id}',[FrontEndController::class,'content'])->name('content');

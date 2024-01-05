@@ -18,6 +18,9 @@
             <input name="id" type="hidden" value="{{ $data->id??'' }}"
               class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
               hidden>
+            <input name="slug" type="hidden" value="{{ $data->slug??'' }}"
+              class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
+              hidden>
             <span class="text-[#000] mb-2">Judul Konten<span class="text-[#FF1F39]">*</span></span>
             <input name="title" type="text" placeholder="Masukan Judul Konten"
               class="w-full rounded-lg bg-[#FFF] py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-slate-[16px]"
@@ -42,7 +45,7 @@
           </div>
         <div class="my-4">
             <label for="content" class="text-[#000] mb-2">Konten<span class="text-[#FF1F39]">*</span></label>
-            <textarea class="shadow-sm shadow" type="text" name="content" data-target-tinymce> {{ $data->content??'' }}
+            <textarea class="shadow-sm shadow" type="text" name="content" data-target-tinymce> {{ $data->content??old('content') }}
             </textarea>
             @error('content')
             <span class="text-red-500">*{{ $message }}</span>
@@ -51,7 +54,7 @@
         <div class="my-4">
           <label for="status" class="text-[#000] mb-2">Status Konten<span class="text-[#FF1F39]">*</span></label>
           <select name="status" id="status" class="w-full rounded-lg bg-white py-3 px-2 outline-none placeholder-slate-400 text-slate-[#BDBDBD] text-base" required>
-              <option value="" {{ isset($data) && $data->status ?? 'selected' }}>{{ isset($data) && $data->status ? ucfirst($data->status) : 'Status Konten' }}</option>
+              <option value="{{$data->status??''}}" {{ isset($data) && $data->status ?? 'selected' }}>{{ isset($data) && $data->status ? ucfirst($data->status) : 'Status Konten' }}</option>
               <option value="hoax" {{ isset($data) && $data->status == 'hoax' ? 'hidden' : '' }}>Hoax</option>
               <option value="fakta" {{ isset($data) && $data->status == 'fakta' ? 'hidden' : '' }}>Fakta</option>
           </select>
